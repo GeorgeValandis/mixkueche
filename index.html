@@ -450,11 +450,17 @@ window.stopTimer=id=>{S.timers=S.timers.filter(t=>t.id!==id);saveTimers();drawTi
 const saveTimers=()=>store.set("timers",S.timers.map(({id,label,end})=>({id,label,end})));
 function drawTimers(){
   const now=Date.now();
-  $("#timers").innerHTML=S.timers.map(t=>{const left=(t.end-now)/1000,done=left<=0;
+  const box=$("#timers"),ids=new Set(S.timers.map(t=>String(t.id)));
+  [...box.children].forEach(b=>{if(!ids.has(b.dataset.id))b.remove()});
+  // Bestehende Pillen nur im Text ändern, sonst startet die Einblende-Animation jede Sekunde neu
+  S.timers.forEach(t=>{const left=(t.end-now)/1000,done=left<=0;
     if(done&&!t.rang){t.rang=true;beep();try{navigator.vibrate&&navigator.vibrate([300,150,300])}catch{}}
-    return `<button class="pill ${done?"done":""}" onclick="stopTimer(${t.id})" aria-label="Timer beenden">${ICON.clock}${done?"Fertig · "+esc(t.label):mmss(left)}</button>`}).join("");
+    let b=box.querySelector(`[data-id="${t.id}"]`);
+    if(!b){b=document.createElement("button");b.className="pill";b.dataset.id=t.id;b.setAttribute("aria-label","Timer beenden");b.onclick=()=>stopTimer(t.id);b.innerHTML=ICON.clock+"<span></span>";box.appendChild(b)}
+    b.classList.toggle("done",done);
+    const txt=done?"Fertig · "+t.label:mmss(left),s=b.lastChild;if(s.textContent!==txt)s.textContent=txt});
 }
-setInterval(()=>{if(S.timers.length)drawTimers()},1000);
+setInterval(()=>{if(S.timers.length)drawTimers()},250);
 
 /* ---------- Bildschirm an lassen ---------- */
 async function wakeLock(){try{if(!S.wake&&navigator.wakeLock)S.wake=await navigator.wakeLock.request("screen")}catch{}}
