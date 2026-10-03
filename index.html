@@ -57,6 +57,43 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 .tile{text-align:left;display:flex;flex-direction:column;gap:8px;min-width:0}
 .tile canvas,.tile img{width:100%;aspect-ratio:1/1;border-radius:16px;display:block}
 .tile b{font-family:var(--display);font-weight:400;font-size:16px}
+/* Karussell */
+.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.carousel .hero{flex:0 0 100%;scroll-snap-align:center}
+.dots{display:flex;justify-content:center;gap:8px;padding-top:18px;height:26px}
+.dots i{width:8px;height:8px;border-radius:4px;background:var(--muted);opacity:.35;transition:width .25s,opacity .25s,background .25s}
+.dots i.on{width:28px;background:var(--accent);opacity:1}
+.row-head{display:flex;align-items:baseline;justify-content:space-between;padding-block:28px 14px}
+.row-head .sec-title{padding:0}
+.link{color:var(--accent);font-weight:600;font-size:15px;padding:6px 0}
+/* Rezeptliste */
+.search-bar{position:sticky;top:0;z-index:4;background:var(--bg);padding-block:10px}
+.search{display:flex;align-items:center;gap:10px;height:52px;padding:0 6px 0 16px;border-radius:16px;background:var(--surface);box-shadow:var(--shadow);color:var(--muted)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:17px;color:var(--fg);height:100%}
+.search input::placeholder{color:var(--muted)}
+.search input::-webkit-search-cancel-button{display:none}
+.clear{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;visibility:hidden}
+.clear.on{visibility:visible}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-block:12px 4px;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;height:38px;padding:0 16px;border-radius:999px;background:var(--soft);font-weight:500;font-size:15px;transition:background .2s,color .2s}
+.chip.on{background:var(--accent);color:var(--accent-ink)}
+.count-line{color:var(--muted);font-size:14px;padding-block:12px 4px;font-variant-numeric:tabular-nums}
+.list{display:flex;flex-direction:column;padding-bottom:120px}
+.item{display:grid;grid-template-columns:76px 1fr 20px;gap:14px;align-items:center;padding-block:10px;text-align:left;width:100%}
+.item img,.item canvas{width:76px;height:76px;border-radius:14px;object-fit:cover;display:block}
+.item .t{font-family:var(--display);font-size:17px;line-height:1.25;min-width:0}
+.item .meta{font-size:14px;margin-top:6px}
+.item .tags{font-size:13px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .chev{color:var(--muted)}
+.item + .item{box-shadow:0 -1px 0 var(--soft)}
+/* Navigation */
+.nav{position:fixed;left:0;right:0;bottom:0;padding:0 16px calc(10px + env(safe-area-inset-bottom,0px));pointer-events:none;z-index:6}
+.nav-in{pointer-events:auto;max-width:360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:5px;border-radius:999px;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 8px 30px rgba(20,40,24,.14)}
+.nav a{display:flex;flex-direction:column;align-items:center;gap:2px;height:56px;justify-content:center;border-radius:999px;color:var(--fg);text-decoration:none;font-size:13px;font-weight:500;transition:background .2s,color .2s}
+.nav a.on{background:var(--soft);color:var(--accent)}
+.nav-pad{height:110px}
 .empty{padding:60px 8px;text-align:center;color:var(--muted);line-height:1.5}
 .empty b{display:block;font-family:var(--display);font-weight:400;color:var(--fg);font-size:20px;margin-bottom:6px}
 
@@ -135,6 +172,10 @@ const ICON={
   x:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
   rev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v4h4"/></svg>',
   dough:'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V8"/><path d="M12 12c-3 0-4.5-2-4.5-4.5C10.5 7.5 12 9.5 12 12zM12 12c3 0 4.5-2 4.5-4.5C13.5 7.5 12 9.5 12 12zM12 17c-3 0-4.5-2-4.5-4.5C10.5 12.5 12 14.5 12 17zM12 17c3 0 4.5-2 4.5-4.5C13.5 12.5 12 14.5 12 17zM12 7.5c-1.4-1-1.4-3 0-4.5 1.4 1.5 1.4 3.5 0 4.5z"/></svg>',
+  home:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-6h-5v6H4z"/></svg>',
+  book:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 5.5c3-1 6-1 9 1v13c-3-2-6-2-9-1zM21 5.5c-3-1-6-1-9 1v13c3-2 6-2 9-1z"/></svg>',
+  search:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>',
+  chev:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>',
   clock:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>',
   hand:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>'
 };
@@ -198,23 +239,82 @@ function route(){
   releaseWake();
   if(r&&mode==="kochen") return cook(r);
   if(r) return detail(r);
+  if(id==="rezepte") return list();
   home();
 }
+const newest=()=>[...S.recipes].sort((a,b)=>(b.order||0)-(a.order||0));
+const nav=on=>`<nav class="nav"><div class="nav-in">
+  <a href="#" class="${on==="home"?"on":""}" aria-label="Für dich">${ICON.home}Für dich</a>
+  <a href="#rezepte" class="${on==="list"?"on":""}" aria-label="Rezepte">${ICON.book}Rezepte</a></div></nav>`;
 function home(){
-  const rs=S.recipes,first=rs[0];
+  const rs=newest(),top=rs.slice(0,5),more=rs.slice(0,4);
   $("#app").innerHTML=`<div class="wrap view">
     <div class="top gutter"><h1>Mixküche</h1></div>
-    ${!S.loaded?`<div class="empty gutter">Lädt …</div>`:!first?`<div class="empty gutter"><b>Noch keine Rezepte</b>Sag Claude, was du kochen willst. Das Rezept erscheint dann hier.</div>`:`
-    <button class="hero" onclick="location.hash='${first.id}'">${media(first)}
-      <div class="card"><h2>${esc(first.title)}</h2><div class="meta"><span>${minLabel(first.times.total)}</span><span class="dot"></span><span>${esc(first.difficulty||"")}</span></div></div></button>
-    ${rs.length>1?`<div class="gutter"><div class="sec-title">Alle Rezepte</div><div class="grid">${rs.slice(1).map(r=>`
-      <button class="tile" onclick="location.hash='${r.id}'">${media(r)}<b>${esc(r.title)}</b><span class="meta">${minLabel(r.times.total)}</span></button>`).join("")}</div></div>`:`<div style="height:40px"></div>`}`}
-  </div>`;
+    ${!S.loaded?`<div class="empty gutter">Lädt …</div>`:!rs.length?`<div class="empty gutter"><b>Noch keine Rezepte</b>Sag Claude, was du kochen willst. Das Rezept erscheint dann hier.</div>`:`
+    <div class="carousel" id="car">${top.map(r=>`
+      <button class="hero" onclick="location.hash='${r.id}'">${media(r)}
+        <div class="card"><h2>${esc(r.title)}</h2><div class="meta"><span>${minLabel(r.times.total)}</span><span class="dot"></span><span>${esc(r.difficulty||"")}</span></div></div></button>`).join("")}</div>
+    ${top.length>1?`<div class="dots" id="dots">${top.map((_,k)=>`<i class="${k?"":"on"}"></i>`).join("")}</div>`:""}
+    <div class="gutter"><div class="row-head"><div class="sec-title">Alle Rezepte</div><a class="link" href="#rezepte">Alle ${rs.length}</a></div>
+      <div class="grid">${more.map(r=>`
+      <button class="tile" onclick="location.hash='${r.id}'">${media(r)}<b>${esc(r.title)}</b><span class="meta">${minLabel(r.times.total)}</span></button>`).join("")}</div></div>`}
+    <div class="nav-pad"></div>
+  </div>${nav("home")}`;
+  const car=$("#car"),dots=$("#dots");
+  if(car&&dots)car.addEventListener("scroll",()=>{const k=Math.round(car.scrollLeft/car.clientWidth);dots.querySelectorAll("i").forEach((d,j)=>d.classList.toggle("on",j===k))},{passive:true});
   canvases();scrollTo(0,0);
 }
+
+/* ---------- Rezeptliste ---------- */
+const norm=t=>String(t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss");
+const QUICK="Schnell";
+function haystack(r){return norm([r.title,r.subtitle,(r.tags||[]).join(" "),...(r.groups||[]).flatMap(g=>g.items.map(i=>i.name))].join(" "))}
+function allTags(){const c={};S.recipes.forEach(r=>(r.tags||[]).forEach(t=>c[t]=(c[t]||0)+1));const t=Object.keys(c).sort((a,b)=>c[b]-c[a]||a.localeCompare(b,"de"));return S.recipes.some(r=>r.times.total<=45)?[QUICK,...t]:t}
+function filtered(){
+  const words=norm(S.q).split(/\s+/).filter(Boolean);
+  return [...S.recipes].sort((a,b)=>a.title.localeCompare(b.title,"de")).filter(r=>{
+    if(S.tag===QUICK&&r.times.total>45)return false;
+    if(S.tag&&S.tag!==QUICK&&!(r.tags||[]).includes(S.tag))return false;
+    const h=haystack(r);return words.every(w=>h.includes(w));
+  });
+}
+function list(){
+  S.q=S.q||"";
+  $("#app").innerHTML=`<div class="wrap view gutter">
+    <div class="top"><h1>Rezepte</h1></div>
+    <div class="search-bar">
+      <label class="search">${ICON.search}<input id="q" type="search" placeholder="Rezept oder Zutat suchen" autocomplete="off" enterkeyhint="search" value="${esc(S.q)}">
+        <button class="clear ${S.q?"on":""}" id="clr" aria-label="Suche leeren">${ICON.x}</button></label>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div id="res"></div>
+  </div>${nav("list")}`;
+  const q=$("#q");
+  q.addEventListener("input",()=>{S.q=q.value;$("#clr").classList.toggle("on",!!S.q);results()});
+  q.addEventListener("keydown",e=>{if(e.key==="Enter")q.blur()});
+  $("#clr").addEventListener("click",e=>{e.preventDefault();S.q="";q.value="";$("#clr").classList.remove("on");results();q.focus()});
+  chips();results();
+}
+function chips(){
+  const ts=allTags();
+  $("#chips").innerHTML=ts.length?[`<button class="chip ${!S.tag?"on":""}" data-t="">Alle</button>`,...ts.map(t=>`<button class="chip ${S.tag===t?"on":""}" data-t="${esc(t)}">${esc(t)}</button>`)].join(""):"";
+  $("#chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;S.tag=b.dataset.t||null;$("#chips").querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c===b));results()};
+}
+function results(){
+  const rs=filtered(),el=$("#res");if(!el)return;
+  if(!S.loaded){el.innerHTML=`<div class="empty">Lädt …</div>`;return}
+  if(!S.recipes.length){el.innerHTML=`<div class="empty"><b>Noch keine Rezepte</b>Sag Claude, was du kochen willst.</div>`;return}
+  if(!rs.length){el.innerHTML=`<div class="empty"><b>Nichts gefunden</b>${S.q?`Kein Rezept passt zu „${esc(S.q)}“.`:"In dieser Kategorie gibt es noch nichts."}<br>Sag Claude Bescheid, dann kommt es rein.</div>`;return}
+  el.innerHTML=`<div class="count-line">${rs.length} ${rs.length===1?"Rezept":"Rezepte"}</div><div class="list">${rs.map(r=>`
+    <button class="item" onclick="location.hash='${r.id}'">${media(r)}
+      <span class="t">${esc(r.title)}<span class="meta"><span>${minLabel(r.times.total)}</span><span class="dot"></span><span>${esc(r.difficulty||"")}</span></span>${(r.tags||[]).length?`<span class="tags">${esc(r.tags.join(" · "))}</span>`:""}</span>
+      <span class="chev">${ICON.chev}</span></button>`).join("")}</div>`;
+  canvases();
+}
+
 function detail(r){
   const por=store.get("por:"+r.id,r.servings),f=por/r.servings;
-  $("#app").innerHTML=`<button class="back" aria-label="Zurück" onclick="location.hash=''">${ICON.back}</button>
+  $("#app").innerHTML=`<button class="back" aria-label="Zurück" onclick="history.length>1?history.back():location.hash=''">${ICON.back}</button>
   <div class="wrap detail view">${media(r,"display:block;width:100%;aspect-ratio:1/1")}
     <div class="card"><h2>${esc(r.title)}</h2><p class="sub">${esc(r.subtitle||"")}</p>
       <div class="facts"><div><b>${minLabel(r.times.prep)}</b><span>Arbeitszeit</span></div><div><b>${minLabel(r.times.total)}</b><span>Gesamt</span></div><div><b>${esc(r.difficulty)}</b><span>Schwierigkeit</span></div></div>
