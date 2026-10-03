@@ -1,0 +1,276 @@
+[
+ {
+  "id": "lahmacun",
+  "order": 1,
+  "title": "Lahmacun",
+  "subtitle": "Türkische Pizza: hauchdünner Fladen mit würzigem Hackbelag, dazu Zwiebel-Sumach-Salat und Zitrone",
+  "servings": 6,
+  "maxServings": 12,
+  "servingUnit": "Stück",
+  "difficulty": "mittel",
+  "times": {
+   "prep": 35,
+   "total": 110
+  },
+  "art": {
+   "style": "flat",
+   "base": "#e3b26c",
+   "topping": "#a3412a"
+  },
+  "groups": [
+   {
+    "name": "Teig",
+    "items": [
+     {
+      "id": "wasser",
+      "qty": 180,
+      "unit": "g",
+      "name": "Wasser",
+      "note": "lauwarm"
+     },
+     {
+      "id": "hefe",
+      "qty": 10,
+      "unit": "g",
+      "name": "frische Hefe",
+      "note": "oder ½ Päckchen Trockenhefe"
+     },
+     {
+      "id": "zucker",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Zucker"
+     },
+     {
+      "id": "mehl",
+      "qty": 300,
+      "unit": "g",
+      "name": "Weizenmehl Type 550",
+      "note": "plus etwas zum Ausrollen"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "oel",
+      "qty": 2,
+      "unit": "EL",
+      "name": "Olivenöl"
+     }
+    ]
+   },
+   {
+    "name": "Belag",
+    "items": [
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "knoblauch",
+      "qty": 1,
+      "unit": "",
+      "name": "Knoblauchzehe"
+     },
+     {
+      "id": "spitzpaprika",
+      "qty": 1,
+      "unit": "",
+      "name": "rote Spitzpaprika",
+      "note": "in Stücken"
+     },
+     {
+      "id": "tomate",
+      "qty": 1,
+      "unit": "",
+      "name": "Tomate",
+      "note": "geviertelt"
+     },
+     {
+      "id": "petersilie",
+      "qty": 15,
+      "unit": "g",
+      "name": "glatte Petersilie",
+      "note": "mit Stielen"
+     },
+     {
+      "id": "hack",
+      "qty": 250,
+      "unit": "g",
+      "name": "Rinder- oder Lammhack"
+     },
+     {
+      "id": "tomatenmark",
+      "qty": 1,
+      "unit": "EL",
+      "name": "Tomatenmark"
+     },
+     {
+      "id": "biber",
+      "qty": 1,
+      "unit": "EL",
+      "name": "Paprikamark",
+      "note": "Biber Salçası, scharf oder mild"
+     },
+     {
+      "id": "pulbiber",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Pul Biber"
+     },
+     {
+      "id": "paprikapulver",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Paprikapulver edelsüß"
+     },
+     {
+      "id": "kreuzkuemmel",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Kreuzkümmel"
+     },
+     {
+      "id": "salz2",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "pfeffer",
+      "qty": 0.25,
+      "unit": "TL",
+      "name": "Pfeffer"
+     }
+    ]
+   },
+   {
+    "name": "Zum Servieren",
+    "items": [
+     {
+      "id": "rotezwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "rote Zwiebel",
+      "note": "in feinen Ringen"
+     },
+     {
+      "id": "sumach",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Sumach"
+     },
+     {
+      "id": "petersilie2",
+      "qty": 0.5,
+      "unit": "Bund",
+      "name": "Petersilie"
+     },
+     {
+      "id": "zitrone",
+      "qty": 1,
+      "unit": "",
+      "name": "Zitrone",
+      "note": "in Spalten"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Teig",
+    "text": "{wasser}, {hefe} und {zucker} in den Mixtopf geben und erwärmen.",
+    "tm": {
+     "time": 120,
+     "temp": 37,
+     "speed": "2"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "{mehl}, {salz} und {oel} zugeben und kneten.",
+    "tm": {
+     "time": 120,
+     "temp": null,
+     "speed": "",
+     "mode": "dough"
+    },
+    "tip": "Teigknetmodus: Deckel bleibt zu, der Teig ist danach glatt und leicht klebrig."
+   },
+   {
+    "group": "Teig",
+    "text": "Teig in eine geölte Schüssel geben, abdecken und gehen lassen. Mixtopf ausspülen.",
+    "timer": 3600,
+    "timerLabel": "Teig",
+    "tip": "Während der Teig geht, machst du einfach mit dem Belag weiter."
+   },
+   {
+    "group": "Belag",
+    "text": "{zwiebel}, {knoblauch}, {spitzpaprika}, {tomate} und {petersilie} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    },
+    "tip": "Danach mit dem Spatel nach unten schieben."
+   },
+   {
+    "group": "Belag",
+    "text": "{hack}, {tomatenmark}, {biber}, {pulbiber}, {paprikapulver}, {kreuzkuemmel}, {salz2} und {pfeffer} zugeben und vermischen.",
+    "tm": {
+     "time": 30,
+     "temp": null,
+     "speed": "3",
+     "reverse": true
+    },
+    "tip": "Der Belag soll streichfähig sein, nicht flüssig. Ist er zu nass, etwas Flüssigkeit abgießen. Bis zum Backen kalt stellen."
+   },
+   {
+    "group": "Backofen",
+    "text": "Backofen mit einem Backblech darin vorheizen.",
+    "oven": {
+     "temp": 250,
+     "mode": "Ober-/Unterhitze"
+    },
+    "tip": "Je heißer Ofen und Blech, desto knuspriger wird der Boden."
+   },
+   {
+    "group": "Zum Servieren",
+    "text": "{rotezwiebel} mit {sumach} und gehackter {petersilie2} mischen, leicht salzen.",
+    "tip": "Ohne Thermomix, einfach in einer Schüssel."
+   },
+   {
+    "group": "Formen",
+    "text": "Teig in 6 gleich große Portionen teilen und auf bemehlter Fläche sehr dünn (ca. 2 mm) oval ausrollen.",
+    "tip": "Lieber dünner als dicker: Lahmacun ist kein Pizzaboden."
+   },
+   {
+    "group": "Formen",
+    "text": "Je 2 Fladen auf ein Stück Backpapier legen und den Belag dünn bis knapp an den Rand verstreichen.",
+    "tip": "Mit nassen Fingern oder der Rückseite eines Löffels geht das am leichtesten."
+   },
+   {
+    "group": "Backen",
+    "text": "Backpapier mit den Fladen auf das heiße Blech ziehen und backen, bis die Ränder knusprig sind. Mit den restlichen Fladen wiederholen.",
+    "oven": {
+     "temp": 250,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 480,
+    "timerLabel": "Lahmacun"
+   },
+   {
+    "group": "Servieren",
+    "text": "Mit Zwiebel-Sumach-Salat belegen, mit {zitrone} beträufeln, aufrollen und sofort essen. Afiyet olsun!"
+   }
+  ],
+  "image": "img/lahmacun.jpg",
+  "imageCredit": "Polatovic, Wikimedia Commons, CC0 (gemeinfrei)"
+ }
+]
