@@ -248,7 +248,7 @@ function canvases(){document.querySelectorAll("canvas[data-r]").forEach(cv=>{con
 /* ---------- Ansichten ---------- */
 /* ---------- Übergänge (eigene Engine, läuft auf jedem iOS) ---------- */
 const REDUCED=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const EASE="cubic-bezier(.32,.72,0,1)",DUR=420;
+const EASE="cubic-bezier(.4,0,.2,1)",DUR=560;
 function where(){const [id,mode]=decodeURIComponent(location.hash.slice(1)).split(".");const r=S.recipes.find(x=>x.id===id);return {id,r,depth:r?(mode==="kochen"?2:1):0}}
 let last=null,running=[],lastHash=location.hash;const SCROLL={};
 function settle(){running.forEach(f=>f());running=[]}
@@ -264,16 +264,16 @@ function transition(dir,fn){
     const br=body.getBoundingClientRect(),cr=cook.getBoundingClientRect();
     Object.assign(oldBody.style,{position:"absolute",left:"0",right:"0",top:(br.top-cr.top)+"px",height:br.height+"px",pointerEvents:"none"});
     cook.appendChild(oldBody);oldBody.scrollTop=st;
-    const s=dir==="next"?1:-1,o={duration:REDUCED?200:360,easing:EASE,fill:"both"};
-    const a1=oldBody.animate(REDUCED?[{opacity:1},{opacity:0}]:[{transform:"none",opacity:1},{transform:`translateX(${-s*28}%)`,opacity:0}],o);
-    const a2=body.animate(REDUCED?[{opacity:0},{opacity:1}]:[{transform:`translateX(${s*40}%)`,opacity:0},{transform:"none",opacity:1}],o);
+    const s=dir==="next"?1:-1,o={duration:REDUCED?240:480,easing:EASE,fill:"both"};
+    const a1=oldBody.animate(REDUCED?[{opacity:1},{opacity:0}]:[{transform:"none",opacity:1},{transform:`translateX(${-s*12}%)`,opacity:0}],o);
+    const a2=body.animate(REDUCED?[{opacity:0},{opacity:1}]:[{transform:`translateX(${s*18}%)`,opacity:0},{transform:"none",opacity:1}],o);
     const ons=[...document.querySelectorAll("#app .progress i.on")];
     if(dir==="next"&&ons.length&&!REDUCED)ons[ons.length-1].animate([{transform:"scaleX(0)",transformOrigin:"left"},{transform:"scaleX(1)",transformOrigin:"left"}],{duration:400,easing:EASE});
     const done=()=>{oldBody.remove();a2.cancel()};
     let ended=false;const end=()=>{if(ended)return;ended=true;done()};
     const fin=()=>{try{a1.finish();a2.finish()}catch{}end()};running.push(fin);
     a2.finished.then(()=>{running=running.filter(f=>f!==fin);end()}).catch(()=>{});
-    setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},600);
+    setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},800);
     return;
   }
   // Alte Ansicht einfrieren, neue darunter/darüber aufbauen
@@ -288,21 +288,21 @@ function transition(dir,fn){
   const ty=dir==="back"?(SCROLL[lastHash]||0):0;app.scrollTop=ty;
   const anims=[];const o={duration:REDUCED?220:DUR,easing:EASE,fill:"both"};
   if(REDUCED||dir==="fade"){
-    anims.push(oldApp.animate([{opacity:1},{opacity:0}],{...o,duration:REDUCED?220:200}));
+    anims.push(oldApp.animate([{opacity:1},{opacity:0}],{...o,duration:REDUCED?240:320}));
     anims.push(app.animate([{opacity:0,transform:REDUCED?"none":"translateY(10px)"},{opacity:1,transform:"none"}],o));
   } else if(dir==="forward"){
-    anims.push(oldApp.animate([{transform:"none",filter:"brightness(1)"},{transform:"translateX(-30%)",filter:"brightness(.85)"}],o));
-    anims.push(app.animate([{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,.12)"},{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
+    anims.push(oldApp.animate([{transform:"none",filter:"brightness(1)"},{transform:"translateX(-22%)",filter:"brightness(.94)"}],o));
+    anims.push(app.animate([{transform:"translateX(100%)",boxShadow:"-8px 0 28px rgba(0,0,0,.08)"},{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
   } else {
-    anims.push(oldApp.animate([{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,.12)"},{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
-    anims.push(app.animate([{transform:"translateX(-30%)",filter:"brightness(.85)"},{transform:"none",filter:"brightness(1)"}],o));
+    anims.push(oldApp.animate([{transform:"none",boxShadow:"-8px 0 28px rgba(0,0,0,.08)"},{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
+    anims.push(app.animate([{transform:"translateX(-22%)",filter:"brightness(.94)"},{transform:"none",filter:"brightness(1)"}],o));
   }
   let ended=false;
   const done=()=>{if(ended)return;ended=true;oldApp.remove();app.removeAttribute("style");scrollTo(0,ty);anims.forEach(a=>{try{a.cancel()}catch{}})};
   const fin=()=>{anims.forEach(a=>{try{a.finish()}catch{}});done()};
   running.push(fin);
   Promise.all(anims.map(a=>a.finished)).then(()=>{running=running.filter(f=>f!==fin);done()}).catch(()=>{});
-  setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},700);
+  setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},900);
 }
 function route(){
   const now=where(),prev=last;last=now;
