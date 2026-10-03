@@ -45,7 +45,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 .top{display:flex;justify-content:space-between;align-items:center;padding-block:18px 8px}
 .top h1{font-size:30px}
 .brand{display:flex;align-items:center;gap:10px}
-.logo{width:34px;height:34px;border-radius:10px;display:block}
+.logo{width:34px;height:34px;display:block;flex:none}
 .hero{position:relative;display:block;width:100%;text-align:left}
 .photo{object-fit:cover;object-position:var(--pos,50% 40%);background:var(--soft)}
 .credit{font-size:12px;color:var(--muted);padding-top:20px}
@@ -190,7 +190,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 <script>
 const S={recipes:[],loaded:false,timers:[],audio:null,wake:null};
 const $=s=>document.querySelector(s);
-const VERSION="1.1",BUILD=11;
+const VERSION="1.1",BUILD=12;
+const LOGO='<svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#3d9a46"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M25 9c-2 2.5 2 4 0 6.5s2 4 0 6.5M32 9c-2 2.5 2 4 0 6.5s2 4 0 6.5M39 9c-2 2.5 2 4 0 6.5s2 4 0 6.5"/></g><g fill="#fff"><rect x="28" y="24" width="8" height="4" rx="2"/><rect x="13" y="28" width="38" height="5" rx="2.5"/><rect x="8" y="34" width="9" height="4" rx="2"/><rect x="47" y="34" width="9" height="4" rx="2"/><path d="M16 33h32v13a7 7 0 0 1-7 7H23a7 7 0 0 1-7-7z"/></g><circle cx="32" cy="42" r="4.5" fill="#3d9a46"/></svg>';
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ICON={
@@ -361,14 +362,14 @@ function settings(){
     <div class="top"><h1>Einstellungen</h1></div>
     <div class="set-label">Erscheinungsbild</div>
     <div class="seg">${opt("system","System")}${opt("light","Hell")}${opt("dark","Dunkel")}</div>
-    <div class="about"><img class="logo" src="icons/icon-192.png" alt=""><b>Mixküche</b><span>Version ${VERSION} (${BUILD})</span><span>von Georgios Avenidis</span></div>
+    <div class="about">${LOGO}<b>Mixküche</b><span>Version ${VERSION} (${BUILD})</span><span>von Georgios Avenidis</span></div>
     <div class="nav-pad"></div>
   </div>${nav("settings")}`;
 }
 function home(){
   const rs=newest(),top=rs.slice(0,5),more=rs.slice(0,4);
   $("#app").innerHTML=`<div class="wrap view">
-    <div class="top gutter"><h1 class="brand"><img class="logo" src="icons/icon-192.png" alt="">Mixküche</h1></div>
+    <div class="top gutter"><h1 class="brand">${LOGO}Mixküche</h1></div>
     ${!S.loaded?`<div class="empty gutter">Lädt …</div>`:!rs.length?`<div class="empty gutter"><b>Noch keine Rezepte</b>Sag Claude, was du kochen willst. Das Rezept erscheint dann hier.</div>`:`
     <div class="carousel" id="car">${top.map(r=>`
       <button class="hero" onclick="location.hash='${r.id}'">${media(r)}
