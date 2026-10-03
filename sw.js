@@ -1,5 +1,5 @@
 // Offline: App-Hülle und Bilder aus dem Cache, Rezepte zuerst frisch aus dem Netz.
-const CACHE = "mixkueche-v6";
+const CACHE = "mixkueche-v7";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "recipes.json", "icons/apple-touch-icon.png", "icons/icon-192.png"];
 
 self.addEventListener("install", e => {

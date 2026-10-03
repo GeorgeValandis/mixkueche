@@ -414,6 +414,7 @@ function tmPanel(t){
     <div><b>${t.temp!=null?esc(t.temp)+(typeof t.temp==="number"?"°":""):"–"}</b><span>Temperatur</span></div>
     <div><b>${speed}</b><span>${t.mode==="dough"?"Teig":"Stufe"}</span></div>
     ${t.reverse?`<div class="dir">${ICON.rev} Linkslauf</div>`:""}
+    ${t.whisk?`<div class="dir">Rühraufsatz</div>`:""}
   </div>`;
 }
 function ovenPanel(o){return o?`<div class="tm oven"><div><b>${o.temp}°</b><span>Backofen</span></div><div><b style="font-size:17px">${esc(o.mode)}</b><span>Heizart</span></div></div>`:""}

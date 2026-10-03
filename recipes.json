@@ -278,5 +278,372 @@
    "Fleisch",
    "Backen"
   ]
+ },
+ {
+  "id": "kaesekuchen",
+  "order": 2,
+  "title": "Käsekuchen",
+  "subtitle": "Klassisch mit Mürbeteigboden, cremiger Quarkfüllung und einem Hauch Zitrone",
+  "servings": 12,
+  "maxServings": 12,
+  "servingUnit": "Stück",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 30,
+   "total": 290
+  },
+  "art": {
+   "style": "flat",
+   "base": "#e9c98a",
+   "topping": "#f6ebc8"
+  },
+  "groups": [
+   {
+    "name": "Boden",
+    "items": [
+     {
+      "id": "mehl",
+      "qty": 200,
+      "unit": "g",
+      "name": "Weizenmehl Type 405"
+     },
+     {
+      "id": "zucker1",
+      "qty": 75,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "butter1",
+      "qty": 100,
+      "unit": "g",
+      "name": "Butter",
+      "note": "kalt, in Stücken"
+     },
+     {
+      "id": "ei1",
+      "qty": 1,
+      "unit": "",
+      "name": "Ei"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     }
+    ]
+   },
+   {
+    "name": "Füllung",
+    "items": [
+     {
+      "id": "zitrone",
+      "qty": 1,
+      "unit": "",
+      "name": "Bio-Zitrone",
+      "note": "nur die gelbe Schale, mit dem Sparschäler"
+     },
+     {
+      "id": "zucker2",
+      "qty": 180,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "butter2",
+      "qty": 100,
+      "unit": "g",
+      "name": "Butter",
+      "note": "in Stücken"
+     },
+     {
+      "id": "quark",
+      "qty": 1000,
+      "unit": "g",
+      "name": "Magerquark"
+     },
+     {
+      "id": "eier",
+      "qty": 3,
+      "unit": "",
+      "name": "Eier"
+     },
+     {
+      "id": "pudding",
+      "qty": 1,
+      "unit": "Päckchen",
+      "name": "Vanillepuddingpulver",
+      "note": "37 g"
+     },
+     {
+      "id": "sahne",
+      "qty": 200,
+      "unit": "g",
+      "name": "Sahne"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Vorbereiten",
+    "text": "Backofen vorheizen. Boden einer Springform (26 cm) mit Backpapier belegen, den Rand fetten.",
+    "oven": {
+     "temp": 175,
+     "mode": "Ober-/Unterhitze"
+    }
+   },
+   {
+    "group": "Boden",
+    "text": "{mehl}, {zucker1}, {butter1}, {ei1} und {salz} in den Mixtopf geben und zu Teig verarbeiten.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "4"
+    },
+    "tip": "Ist der Teig noch krümelig, ist das in Ordnung: In der Form drückt er sich zusammen."
+   },
+   {
+    "group": "Boden",
+    "text": "Teig in die Form drücken, dabei einen Rand von etwa 3 cm hochziehen. Kalt stellen. Mixtopf spülen und gut abtrocknen."
+   },
+   {
+    "group": "Füllung",
+    "text": "Schale der {zitrone} und {zucker2} in den Mixtopf geben und fein mahlen.",
+    "tm": {
+     "time": 10,
+     "temp": null,
+     "speed": "10"
+    },
+    "tip": "Der Mixtopf muss trocken sein, sonst klumpt der Zucker."
+   },
+   {
+    "group": "Füllung",
+    "text": "{butter2} zugeben und schmelzen.",
+    "tm": {
+     "time": 120,
+     "temp": 50,
+     "speed": "2"
+    }
+   },
+   {
+    "group": "Füllung",
+    "text": "{quark}, {eier}, {pudding} und {sahne} zugeben und zu einer glatten Creme verrühren.",
+    "tm": {
+     "time": 40,
+     "temp": null,
+     "speed": "4"
+    },
+    "tip": "Mit dem Spatel nach unten schieben und bei Bedarf noch 10 Sek. auf Stufe 4 rühren."
+   },
+   {
+    "group": "Backen",
+    "text": "Füllung auf den Boden geben, glatt streichen und backen.",
+    "oven": {
+     "temp": 175,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 3900,
+    "timerLabel": "Käsekuchen",
+    "tip": "Nach 10 Minuten mit einem Messer rundum zwischen Teigrand und Füllung einschneiden, dann reißt die Oberfläche weniger. Wird sie zu dunkel, mit Alufolie abdecken."
+   },
+   {
+    "group": "Backen",
+    "text": "Ofen ausschalten, die Tür einen Spalt öffnen und den Kuchen im Ofen ruhen lassen.",
+    "timer": 900,
+    "timerLabel": "Ruhen",
+    "tip": "Ein Kochlöffel in der Tür hält den Spalt offen. So fällt der Kuchen nicht zusammen."
+   },
+   {
+    "group": "Kühlen",
+    "text": "Kuchen in der Form abkühlen lassen und danach kalt stellen.",
+    "timer": 10800,
+    "timerLabel": "Kühlen",
+    "tip": "Über Nacht im Kühlschrank wird er am besten."
+   },
+   {
+    "group": "Servieren",
+    "text": "Rand mit einem Messer lösen, Springform öffnen und in 12 Stücke schneiden."
+   }
+  ],
+  "image": "img/kaesekuchen.jpg",
+  "imageCredit": "Andy Li, Wikimedia Commons, CC0 (gemeinfrei)",
+  "tags": [
+   "Kuchen",
+   "Backen",
+   "Dessert",
+   "Vegetarisch"
+  ]
+ },
+ {
+  "id": "tiramisu",
+  "order": 3,
+  "title": "Tiramisu",
+  "subtitle": "Löffelbiskuits in Espresso, luftige Mascarponecreme mit erhitzten Eiern, Kakao obendrauf",
+  "servings": 8,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 30,
+   "total": 270
+  },
+  "art": {
+   "style": "flat",
+   "base": "#6b4a33",
+   "topping": "#efe2c6"
+  },
+  "groups": [
+   {
+    "name": "Kaffee",
+    "items": [
+     {
+      "id": "espresso",
+      "qty": 300,
+      "unit": "g",
+      "name": "Espresso",
+      "note": "stark"
+     },
+     {
+      "id": "amaretto",
+      "qty": 3,
+      "unit": "EL",
+      "name": "Amaretto",
+      "note": "nach Belieben"
+     }
+    ]
+   },
+   {
+    "name": "Creme",
+    "items": [
+     {
+      "id": "sahne",
+      "qty": 200,
+      "unit": "g",
+      "name": "Sahne",
+      "note": "kalt"
+     },
+     {
+      "id": "eier",
+      "qty": 4,
+      "unit": "",
+      "name": "Eier",
+      "note": "sehr frisch"
+     },
+     {
+      "id": "zucker",
+      "qty": 100,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "mascarpone",
+      "qty": 500,
+      "unit": "g",
+      "name": "Mascarpone",
+      "note": "kalt"
+     }
+    ]
+   },
+   {
+    "name": "Schichten",
+    "items": [
+     {
+      "id": "biskuits",
+      "qty": 200,
+      "unit": "g",
+      "name": "Löffelbiskuits"
+     },
+     {
+      "id": "kakao",
+      "qty": 2,
+      "unit": "EL",
+      "name": "Kakaopulver",
+      "note": "ungesüßt"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Kaffee",
+    "text": "{espresso} kochen, mit {amaretto} in eine flache Schale geben und abkühlen lassen.",
+    "tip": "Ohne Thermomix. Warmer Kaffee weicht die Biskuits zu stark auf."
+   },
+   {
+    "group": "Creme",
+    "text": "Rühraufsatz einsetzen. {sahne} in den Mixtopf geben und steif schlagen. Umfüllen und kalt stellen.",
+    "tm": {
+     "time": null,
+     "temp": null,
+     "speed": "3.5",
+     "whisk": true
+    },
+    "tip": "Ohne Zeit starten und dabeibleiben: Nach 1 bis 2 Minuten ist die Sahne steif. Der Mixtopf muss danach nicht gespült werden."
+   },
+   {
+    "group": "Creme",
+    "text": "{eier} und {zucker} in den Mixtopf geben und dick-schaumig aufschlagen.",
+    "tm": {
+     "time": 420,
+     "temp": 70,
+     "speed": "4",
+     "whisk": true
+    },
+    "tip": "Die Eier werden dabei erhitzt und die Masse wird luftig wie eine Zabaione."
+   },
+   {
+    "group": "Creme",
+    "text": "Ohne Hitze weiter aufschlagen, bis die Masse abgekühlt ist.",
+    "tm": {
+     "time": 360,
+     "temp": null,
+     "speed": "4",
+     "whisk": true
+    }
+   },
+   {
+    "group": "Creme",
+    "text": "{mascarpone} zugeben und kurz unterrühren.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "3",
+     "whisk": true
+    }
+   },
+   {
+    "group": "Creme",
+    "text": "Rühraufsatz entfernen und die Sahne mit dem Spatel vorsichtig unterheben."
+   },
+   {
+    "group": "Schichten",
+    "text": "Die Hälfte der {biskuits} kurz in den Kaffee tauchen und eine Form (ca. 20 × 30 cm) damit auslegen. Die Hälfte der Creme darauf verstreichen.",
+    "tip": "Nur 1 bis 2 Sekunden pro Seite tauchen, sonst werden sie matschig."
+   },
+   {
+    "group": "Schichten",
+    "text": "Mit den restlichen Biskuits und der restlichen Creme eine zweite Schicht machen."
+   },
+   {
+    "group": "Kühlen",
+    "text": "Abgedeckt in den Kühlschrank stellen.",
+    "timer": 14400,
+    "timerLabel": "Kühlen",
+    "tip": "Über Nacht zieht es am besten durch."
+   },
+   {
+    "group": "Servieren",
+    "text": "Kurz vor dem Servieren {kakao} durch ein Sieb darüberstäuben."
+   }
+  ],
+  "image": "img/tiramisu.jpg",
+  "imageCredit": "Missvain, Wikimedia Commons, CC0 (gemeinfrei)",
+  "tags": [
+   "Italienisch",
+   "Dessert",
+   "Vegetarisch"
+  ]
  }
 ]
