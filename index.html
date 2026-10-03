@@ -251,9 +251,8 @@ const REDUCED=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const EASE="cubic-bezier(.32,.72,0,1)",DUR=420;
 function where(){const [id,mode]=decodeURIComponent(location.hash.slice(1)).split(".");const r=S.recipes.find(x=>x.id===id);return {id,r,depth:r?(mode==="kochen"?2:1):0}}
 let last=null,running=[],lastHash=location.hash;const SCROLL={};
-function visibleEl(root,id){return [...root.querySelectorAll(`[data-id="${id}"]`)].find(e=>{const b=e.getBoundingClientRect();return b.width>0&&b.bottom>0&&b.top<innerHeight&&b.right>0&&b.left<innerWidth})}
 function settle(){running.forEach(f=>f());running=[]}
-function transition(dir,fn,photoId){
+function transition(dir,fn){
   settle();
   const oldApp=$("#app");
   if(!S.loaded||!oldApp.firstElementChild){fn();lastHash=location.hash;return}
@@ -288,22 +287,9 @@ function transition(dir,fn,photoId){
   fn();lastHash=location.hash;
   const ty=dir==="back"?(SCROLL[lastHash]||0):0;app.scrollTop=ty;
   const anims=[];const o={duration:REDUCED?220:DUR,easing:EASE,fill:"both"};
-  // Foto fliegt von der Karte ins große Bild (und zurück)
-  let fly=null,src=null,dst=null;
-  if(photoId&&!REDUCED){src=visibleEl(oldApp,photoId);dst=visibleEl(app,photoId);
-    if(src&&dst&&src.tagName==="IMG"){
-      const a=src.getBoundingClientRect(),b=dst.getBoundingClientRect();
-      fly=src.cloneNode();Object.assign(fly.style,{position:"fixed",left:a.left+"px",top:a.top+"px",width:a.width+"px",height:a.height+"px",margin:"0",zIndex:"50",objectFit:"cover",borderRadius:getComputedStyle(src).borderRadius,aspectRatio:"auto",pointerEvents:"none"});
-      document.body.appendChild(fly);dst.style.visibility="hidden";src.style.visibility="hidden";
-      anims.push(fly.animate([{left:a.left+"px",top:a.top+"px",width:a.width+"px",height:a.height+"px",borderRadius:getComputedStyle(src).borderRadius},{left:b.left+"px",top:b.top+"px",width:b.width+"px",height:b.height+"px",borderRadius:getComputedStyle(dst).borderRadius}],{duration:480,easing:EASE,fill:"both"}));
-    } else src=dst=null;
-  }
   if(REDUCED||dir==="fade"){
     anims.push(oldApp.animate([{opacity:1},{opacity:0}],{...o,duration:REDUCED?220:200}));
     anims.push(app.animate([{opacity:0,transform:REDUCED?"none":"translateY(10px)"},{opacity:1,transform:"none"}],o));
-  } else if(fly){
-    anims.push(oldApp.animate([{opacity:1},{opacity:0}],{...o,duration:300}));
-    anims.push(app.animate([{opacity:0},{opacity:1}],{...o,duration:360}));
   } else if(dir==="forward"){
     anims.push(oldApp.animate([{transform:"none",filter:"brightness(1)"},{transform:"translateX(-30%)",filter:"brightness(.85)"}],o));
     anims.push(app.animate([{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,.12)"},{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
@@ -312,7 +298,7 @@ function transition(dir,fn,photoId){
     anims.push(app.animate([{transform:"translateX(-30%)",filter:"brightness(.85)"},{transform:"none",filter:"brightness(1)"}],o));
   }
   let ended=false;
-  const done=()=>{if(ended)return;ended=true;oldApp.remove();fly&&fly.remove();if(dst)dst.style.visibility="";app.removeAttribute("style");scrollTo(0,ty);anims.forEach(a=>{try{a.cancel()}catch{}})};
+  const done=()=>{if(ended)return;ended=true;oldApp.remove();app.removeAttribute("style");scrollTo(0,ty);anims.forEach(a=>{try{a.cancel()}catch{}})};
   const fin=()=>{anims.forEach(a=>{try{a.finish()}catch{}});done()};
   running.push(fin);
   Promise.all(anims.map(a=>a.finished)).then(()=>{running=running.filter(f=>f!==fin);done()}).catch(()=>{});
@@ -322,8 +308,7 @@ function route(){
   const now=where(),prev=last;last=now;
   if(!prev)return render();
   const dir=now.depth>prev.depth?"forward":now.depth<prev.depth?"back":"fade";
-  const pid=(now.depth===1&&prev.depth===0)?now.r.id:(now.depth===0&&prev.depth===1)?prev.r.id:null;
-  transition(dir,render,pid);
+  transition(dir,render);
 }
 function render(){
   const h=decodeURIComponent(location.hash.slice(1));const [id,mode]=h.split(".");
