@@ -190,7 +190,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 <script>
 const S={recipes:[],loaded:false,timers:[],audio:null,wake:null};
 const $=s=>document.querySelector(s);
-const VERSION="1.1",BUILD=13;
+const VERSION="1.1",BUILD=14;
 const LOGO='<svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#3d9a46"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M25 9c-2 2.5 2 4 0 6.5s2 4 0 6.5M32 9c-2 2.5 2 4 0 6.5s2 4 0 6.5M39 9c-2 2.5 2 4 0 6.5s2 4 0 6.5"/></g><g fill="#fff"><rect x="28" y="24" width="8" height="4" rx="2"/><rect x="13" y="28" width="38" height="5" rx="2.5"/><rect x="8" y="34" width="9" height="4" rx="2"/><rect x="47" y="34" width="9" height="4" rx="2"/><path d="M16 33h32v13a7 7 0 0 1-7 7H23a7 7 0 0 1-7-7z"/></g><circle cx="32" cy="42" r="4.5" fill="#3d9a46"/></svg>';
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -471,7 +471,7 @@ function cook(r){
       <p class="step-text">${stepHTML(r,s.text)}</p>
       ${tmPanel(s.tm)}${ovenPanel(s.oven)}
       ${s.timer?`<button class="timer-btn" onclick="startTimer('${esc(s.timerLabel||r.title)}',${s.timer})">${ICON.clock} Timer ${mmss(s.timer)}</button>`:""}
-      ${s.tip?`<div class="hint">${ICON.hand}<span>${esc(s.tip)}</span></div>`:""}
+      ${s.tip?`<div class="hint">${ICON.hand}<span>${stepHTML(r,s.tip)}</span></div>`:""}
     </div>
     <div class="cook-foot"><button class="prev" ${i===0?"disabled":""} onclick="go('${r.id}',-1)">Zurück</button>
       <button class="next" onclick="${last?`finish('${r.id}')`:`go('${r.id}',1)`}">${last?"Fertig":"Weiter"}</button></div>

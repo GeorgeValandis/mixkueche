@@ -645,5 +645,2944 @@
    "Dessert",
    "Vegetarisch"
   ]
+ },
+ {
+  "id": "spaghetti-bolognese",
+  "title": "Spaghetti Bolognese",
+  "subtitle": "Der Klassiker mit fein versteckter Möhre, mild gewürzt für Kinder",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 15,
+   "total": 45
+  },
+  "art": {
+   "style": "flat",
+   "base": "#e8c77a",
+   "topping": "#a8432b"
+  },
+  "groups": [
+   {
+    "name": "Soße",
+    "items": [
+     {
+      "id": "parmesan",
+      "qty": 40,
+      "unit": "g",
+      "name": "Parmesan",
+      "note": "in Stücken"
+     },
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "knoblauch",
+      "qty": 1,
+      "unit": "",
+      "name": "Knoblauchzehe"
+     },
+     {
+      "id": "moehre",
+      "qty": 1,
+      "unit": "",
+      "name": "Möhre",
+      "note": "in Stücken"
+     },
+     {
+      "id": "oel",
+      "qty": 20,
+      "unit": "g",
+      "name": "Olivenöl"
+     },
+     {
+      "id": "hack",
+      "qty": 400,
+      "unit": "g",
+      "name": "Rinderhack"
+     },
+     {
+      "id": "tomatenmark",
+      "qty": 1,
+      "unit": "EL",
+      "name": "Tomatenmark"
+     },
+     {
+      "id": "tomaten",
+      "qty": 400,
+      "unit": "g",
+      "name": "gehackte Tomaten",
+      "note": "aus der Dose"
+     },
+     {
+      "id": "passata",
+      "qty": 200,
+      "unit": "g",
+      "name": "passierte Tomaten"
+     },
+     {
+      "id": "wasser",
+      "qty": 100,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "bruehe",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Gemüsebrühpulver"
+     },
+     {
+      "id": "oregano",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Oregano",
+      "note": "getrocknet"
+     },
+     {
+      "id": "salz",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "zucker",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Zucker"
+     }
+    ]
+   },
+   {
+    "name": "Nudeln",
+    "items": [
+     {
+      "id": "spaghetti",
+      "qty": 400,
+      "unit": "g",
+      "name": "Spaghetti"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Soße",
+    "text": "{parmesan} in den Mixtopf geben, reiben und umfüllen.",
+    "tm": {
+     "time": 10,
+     "temp": null,
+     "speed": "10"
+    }
+   },
+   {
+    "group": "Soße",
+    "text": "{zwiebel}, {knoblauch} und {moehre} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    },
+    "tip": "Danach mit dem Spatel nach unten schieben. So fein sehen Kinder die Möhre kaum."
+   },
+   {
+    "group": "Soße",
+    "text": "{oel} zugeben und dünsten.",
+    "tm": {
+     "time": 180,
+     "temp": 120,
+     "speed": "1"
+    }
+   },
+   {
+    "group": "Soße",
+    "text": "{hack} zugeben und anbraten.",
+    "tm": {
+     "time": 300,
+     "temp": 120,
+     "speed": "1",
+     "reverse": true
+    },
+    "tip": "Garkorb statt Messbecher auf den Deckel stellen, das hält Spritzer ab."
+   },
+   {
+    "group": "Soße",
+    "text": "{tomatenmark}, {tomaten}, {passata}, {wasser}, {bruehe}, {oregano}, {salz} und {zucker} zugeben und köcheln lassen.",
+    "tm": {
+     "time": 1200,
+     "temp": 100,
+     "speed": "1",
+     "reverse": true
+    },
+    "tip": "Während die Soße köchelt, kochst du die Nudeln."
+   },
+   {
+    "group": "Nudeln",
+    "text": "{spaghetti} in reichlich Salzwasser nach Packungsangabe kochen und abgießen.",
+    "timer": 540,
+    "timerLabel": "Spaghetti",
+    "tip": "Ohne Thermomix, im Topf. Für Kleine die Spaghetti einmal durchbrechen."
+   },
+   {
+    "group": "Servieren",
+    "text": "Spaghetti mit der Soße anrichten und mit dem Parmesan bestreuen."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Italienisch",
+   "Hauptgericht",
+   "Fleisch"
+  ],
+  "order": 4,
+  "image": "img/spaghetti-bolognese.jpg",
+  "imageCredit": "Benoît Prieur, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "tomatensauce-nudeln",
+  "title": "Nudeln mit Gemüse-Tomatensoße",
+  "subtitle": "Samtige Tomatensoße, in der Zucchini, Paprika und Möhre einfach verschwinden",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 10,
+   "total": 35
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f0d48a",
+   "topping": "#d0452f"
+  },
+  "groups": [
+   {
+    "name": "Soße",
+    "items": [
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "moehre",
+      "qty": 1,
+      "unit": "",
+      "name": "Möhre",
+      "note": "in Stücken"
+     },
+     {
+      "id": "zucchini",
+      "qty": 150,
+      "unit": "g",
+      "name": "Zucchini",
+      "note": "in Stücken"
+     },
+     {
+      "id": "paprika",
+      "qty": 0.5,
+      "unit": "",
+      "name": "rote Paprika",
+      "note": "in Stücken"
+     },
+     {
+      "id": "oel",
+      "qty": 20,
+      "unit": "g",
+      "name": "Olivenöl"
+     },
+     {
+      "id": "tomaten",
+      "qty": 800,
+      "unit": "g",
+      "name": "stückige Tomaten",
+      "note": "aus der Dose"
+     },
+     {
+      "id": "bruehe",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Gemüsebrühpulver"
+     },
+     {
+      "id": "zucker",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Zucker"
+     },
+     {
+      "id": "salz",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Salz"
+     }
+    ]
+   },
+   {
+    "name": "Nudeln",
+    "items": [
+     {
+      "id": "nudeln",
+      "qty": 400,
+      "unit": "g",
+      "name": "Nudeln",
+      "note": "z. B. Fusilli oder Farfalle"
+     },
+     {
+      "id": "parmesan",
+      "qty": 30,
+      "unit": "g",
+      "name": "Parmesan",
+      "note": "gerieben, nach Belieben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Soße",
+    "text": "{zwiebel}, {moehre}, {zucchini} und {paprika} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    },
+    "tip": "Mit dem Spatel nach unten schieben."
+   },
+   {
+    "group": "Soße",
+    "text": "{oel} zugeben und dünsten.",
+    "tm": {
+     "time": 240,
+     "temp": 120,
+     "speed": "1"
+    }
+   },
+   {
+    "group": "Soße",
+    "text": "{tomaten}, {bruehe}, {zucker} und {salz} zugeben und köcheln lassen.",
+    "tm": {
+     "time": 900,
+     "temp": 100,
+     "speed": "1"
+    },
+    "tip": "Garkorb als Spritzschutz auf den Deckel. Währenddessen die Nudeln kochen."
+   },
+   {
+    "group": "Nudeln",
+    "text": "{nudeln} in reichlich Salzwasser nach Packungsangabe kochen und abgießen.",
+    "timer": 600,
+    "timerLabel": "Nudeln",
+    "tip": "Ohne Thermomix, im Topf."
+   },
+   {
+    "group": "Soße",
+    "text": "Messbecher einsetzen und die Soße fein pürieren.",
+    "tm": {
+     "time": 30,
+     "temp": null,
+     "speed": "5–10"
+    },
+    "tip": "Langsam von Stufe 5 auf 10 hochdrehen, die Soße ist heiß. Danach ist kein Gemüsestückchen mehr zu sehen."
+   },
+   {
+    "group": "Servieren",
+    "text": "Nudeln mit der Soße mischen und nach Belieben mit {parmesan} bestreuen.",
+    "tip": "Übrige Soße hält im Kühlschrank 3 Tage und lässt sich gut einfrieren."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Italienisch",
+   "Hauptgericht",
+   "Vegetarisch"
+  ],
+  "order": 5,
+  "image": "img/tomatensauce-nudeln.jpg",
+  "imageCredit": "Jamesjhawkins, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "kaese-makkaroni",
+  "title": "Käse-Makkaroni",
+  "subtitle": "Mac and Cheese aus einem Topf: Nudeln direkt in Milch gegart, cremig mit Käse",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 10,
+   "total": 30
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f2cf63",
+   "topping": "#f7e3a0"
+  },
+  "groups": [
+   {
+    "name": "Käse",
+    "items": [
+     {
+      "id": "gouda",
+      "qty": 150,
+      "unit": "g",
+      "name": "mittelalter Gouda oder Cheddar",
+      "note": "in Stücken"
+     }
+    ]
+   },
+   {
+    "name": "Nudeln",
+    "items": [
+     {
+      "id": "milch",
+      "qty": 500,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "wasser",
+      "qty": 250,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "butter",
+      "qty": 20,
+      "unit": "g",
+      "name": "Butter"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "muskat",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Muskat"
+     },
+     {
+      "id": "makkaroni",
+      "qty": 250,
+      "unit": "g",
+      "name": "Makkaroni",
+      "note": "Kochzeit ca. 10 Min."
+     },
+     {
+      "id": "frischkaese",
+      "qty": 50,
+      "unit": "g",
+      "name": "Frischkäse"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Käse",
+    "text": "{gouda} in den Mixtopf geben, reiben und umfüllen.",
+    "tm": {
+     "time": 8,
+     "temp": null,
+     "speed": "8"
+    }
+   },
+   {
+    "group": "Nudeln",
+    "text": "{milch}, {wasser}, {butter}, {salz} und {muskat} in den Mixtopf geben und aufkochen.",
+    "tm": {
+     "time": 420,
+     "temp": 100,
+     "speed": "1"
+    },
+    "tip": "Ohne Messbecher, den Garkorb als Spritzschutz auf den Deckel stellen."
+   },
+   {
+    "group": "Nudeln",
+    "text": "{makkaroni} zugeben und garen.",
+    "tm": {
+     "time": 780,
+     "temp": 100,
+     "speed": "1",
+     "reverse": true
+    },
+    "tip": "Die Nudeln saugen die Milch auf. Sind sie noch zu fest, 2 Minuten verlängern."
+   },
+   {
+    "group": "Nudeln",
+    "text": "Käse und {frischkaese} zugeben und unterrühren.",
+    "tm": {
+     "time": 60,
+     "temp": null,
+     "speed": "1",
+     "reverse": true
+    }
+   },
+   {
+    "group": "Servieren",
+    "text": "2 bis 3 Minuten ruhen lassen, dann wird die Soße schön sämig.",
+    "timer": 180,
+    "timerLabel": "Ruhen",
+    "tip": "Dazu passen Erbsen oder Brokkoli."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Vegetarisch"
+  ],
+  "order": 6,
+  "image": "img/kaese-makkaroni.jpg",
+  "imageCredit": "Alexis Doine, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "kaesespaetzle",
+  "title": "Käsespätzle",
+  "subtitle": "Selbst gemachte Spätzle mit geschmolzenem Bergkäse und milden Butterzwiebeln",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "mittel",
+  "times": {
+   "prep": 30,
+   "total": 50
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f0d080",
+   "topping": "#c98a3c"
+  },
+  "groups": [
+   {
+    "name": "Käse & Zwiebeln",
+    "items": [
+     {
+      "id": "kaese",
+      "qty": 200,
+      "unit": "g",
+      "name": "Bergkäse oder Emmentaler",
+      "note": "in Stücken"
+     },
+     {
+      "id": "zwiebel",
+      "qty": 2,
+      "unit": "",
+      "name": "Zwiebeln",
+      "note": "halbiert"
+     },
+     {
+      "id": "butter",
+      "qty": 30,
+      "unit": "g",
+      "name": "Butter"
+     }
+    ]
+   },
+   {
+    "name": "Spätzle",
+    "items": [
+     {
+      "id": "mehl",
+      "qty": 500,
+      "unit": "g",
+      "name": "Weizenmehl Type 405",
+      "note": "oder Spätzlemehl"
+     },
+     {
+      "id": "eier",
+      "qty": 5,
+      "unit": "",
+      "name": "Eier"
+     },
+     {
+      "id": "wasser",
+      "qty": 200,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Käse & Zwiebeln",
+    "text": "{kaese} in den Mixtopf geben, reiben und umfüllen.",
+    "tm": {
+     "time": 10,
+     "temp": null,
+     "speed": "8"
+    }
+   },
+   {
+    "group": "Käse & Zwiebeln",
+    "text": "{zwiebel} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 4,
+     "temp": null,
+     "speed": "4"
+    }
+   },
+   {
+    "group": "Käse & Zwiebeln",
+    "text": "{butter} zugeben und goldgelb dünsten. Umfüllen, Mixtopf nicht spülen.",
+    "tm": {
+     "time": 600,
+     "temp": 120,
+     "speed": "1",
+     "reverse": true
+    },
+    "tip": "Für Kinder, die keine Zwiebeln mögen, einfach weglassen."
+   },
+   {
+    "group": "Spätzle",
+    "text": "{mehl}, {eier}, {wasser} und {salz} in den Mixtopf geben und zu einem zähen Teig verarbeiten.",
+    "tm": {
+     "time": 60,
+     "temp": null,
+     "speed": "",
+     "mode": "dough"
+    },
+    "tip": "Der Teig soll schwer reißend vom Spatel fallen. Ist er zu fest, etwas Wasser zugeben."
+   },
+   {
+    "group": "Spätzle",
+    "text": "Teig ruhen lassen. Inzwischen einen großen Topf Salzwasser aufsetzen und den Backofen vorheizen.",
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 600,
+    "timerLabel": "Spätzleteig"
+   },
+   {
+    "group": "Spätzle",
+    "text": "Teig portionsweise ins siedende Wasser drücken oder schaben. Sobald die Spätzle oben schwimmen, mit der Schaumkelle herausheben.",
+    "tip": "Spätzlepresse oder Spätzlehobel geht am schnellsten."
+   },
+   {
+    "group": "Backen",
+    "text": "Spätzle, Käse und Zwiebeln abwechselnd in eine Auflaufform schichten, mit Käse abschließen und überbacken.",
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 600,
+    "timerLabel": "Käsespätzle"
+   },
+   {
+    "group": "Servieren",
+    "text": "Sofort servieren.",
+    "tip": "Dazu passt ein grüner Salat."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Vegetarisch",
+   "Schwäbisch"
+  ],
+  "order": 7,
+  "image": "img/kaesespaetzle.jpg",
+  "imageCredit": "Dktue, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "milchreis",
+  "title": "Milchreis",
+  "subtitle": "Cremig wie bei Oma, ohne Anbrennen und ohne Rühren, mit Zimt und Zucker",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 5,
+   "total": 50
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f6efdc",
+   "topping": "#c58b4a"
+  },
+  "groups": [
+   {
+    "name": "Milchreis",
+    "items": [
+     {
+      "id": "milch",
+      "qty": 1000,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "reis",
+      "qty": 200,
+      "unit": "g",
+      "name": "Milchreis"
+     },
+     {
+      "id": "zucker",
+      "qty": 50,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "vanille",
+      "qty": 1,
+      "unit": "Päckchen",
+      "name": "Vanillezucker"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     }
+    ]
+   },
+   {
+    "name": "Topping",
+    "items": [
+     {
+      "id": "zimt",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Zimt"
+     },
+     {
+      "id": "zimtzucker",
+      "qty": 2,
+      "unit": "EL",
+      "name": "Zucker"
+     },
+     {
+      "id": "apfelmus",
+      "qty": 400,
+      "unit": "g",
+      "name": "Apfelmus oder Kirschen",
+      "note": "nach Belieben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Milchreis",
+    "text": "{milch}, {reis}, {zucker}, {vanille} und {salz} in den Mixtopf geben und garen.",
+    "tm": {
+     "time": 2100,
+     "temp": 90,
+     "speed": "1",
+     "reverse": true
+    },
+    "tip": "Garkorb statt Messbecher auf den Deckel stellen. Linkslauf hält die Körner ganz."
+   },
+   {
+    "group": "Milchreis",
+    "text": "Im Mixtopf mit geschlossenem Deckel nachquellen lassen.",
+    "timer": 600,
+    "timerLabel": "Milchreis",
+    "tip": "Er wird beim Abkühlen noch dicker. Zu fest? Einen Schuss Milch unterrühren."
+   },
+   {
+    "group": "Topping",
+    "text": "{zimt} und {zimtzucker} mischen.",
+    "tip": "Ohne Thermomix, in einer kleinen Schale."
+   },
+   {
+    "group": "Servieren",
+    "text": "Milchreis warm oder kalt mit Zimtzucker und {apfelmus} servieren."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Süß",
+   "Hauptgericht",
+   "Vegetarisch"
+  ],
+  "order": 8,
+  "image": "img/milchreis.jpg",
+  "imageCredit": "Markus Spiske, StockSnap, CC0"
+ },
+ {
+  "id": "griessbrei",
+  "title": "Grießbrei",
+  "subtitle": "Weich, süß und in 15 Minuten fertig, perfekt mit Beeren oder Kompott",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 5,
+   "total": 15
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f7f0dc",
+   "topping": "#d2496a"
+  },
+  "groups": [
+   {
+    "name": "Grießbrei",
+    "items": [
+     {
+      "id": "milch",
+      "qty": 750,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "zucker",
+      "qty": 50,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "vanille",
+      "qty": 1,
+      "unit": "Päckchen",
+      "name": "Vanillezucker"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     },
+     {
+      "id": "griess",
+      "qty": 80,
+      "unit": "g",
+      "name": "Weichweizengrieß"
+     },
+     {
+      "id": "butter",
+      "qty": 10,
+      "unit": "g",
+      "name": "Butter"
+     }
+    ]
+   },
+   {
+    "name": "Topping",
+    "items": [
+     {
+      "id": "beeren",
+      "qty": 250,
+      "unit": "g",
+      "name": "Beeren oder Kompott",
+      "note": "frisch oder TK"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Grießbrei",
+    "text": "{milch}, {zucker}, {vanille} und {salz} in den Mixtopf geben und erhitzen.",
+    "tm": {
+     "time": 420,
+     "temp": 90,
+     "speed": "2"
+    }
+   },
+   {
+    "group": "Grießbrei",
+    "text": "{griess} zugeben und andicken lassen.",
+    "tm": {
+     "time": 300,
+     "temp": 90,
+     "speed": "3"
+    },
+    "tip": "Den Grieß bei laufendem Messer auf Stufe 3 durch die Deckelöffnung rieseln lassen, dann klumpt nichts."
+   },
+   {
+    "group": "Grießbrei",
+    "text": "{butter} zugeben und unterrühren.",
+    "tm": {
+     "time": 15,
+     "temp": null,
+     "speed": "3"
+    }
+   },
+   {
+    "group": "Servieren",
+    "text": "In Schalen füllen und mit {beeren} servieren.",
+    "tip": "Vor dem Essen kurz abkühlen lassen. Grießbrei bleibt innen lange heiß."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Süß",
+   "Vegetarisch"
+  ],
+  "order": 9
+ },
+ {
+  "id": "pfannkuchen",
+  "title": "Pfannkuchen",
+  "subtitle": "Dünne, goldene Pfannkuchen zum Füllen und Rollen, süß oder herzhaft",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 10,
+   "total": 40
+  },
+  "art": {
+   "style": "flat",
+   "base": "#ebc06a",
+   "topping": "#7a3b1f"
+  },
+  "groups": [
+   {
+    "name": "Teig",
+    "items": [
+     {
+      "id": "milch",
+      "qty": 500,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "eier",
+      "qty": 3,
+      "unit": "",
+      "name": "Eier"
+     },
+     {
+      "id": "mehl",
+      "qty": 250,
+      "unit": "g",
+      "name": "Weizenmehl"
+     },
+     {
+      "id": "zucker",
+      "qty": 1,
+      "unit": "EL",
+      "name": "Zucker"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     }
+    ]
+   },
+   {
+    "name": "Braten & Füllen",
+    "items": [
+     {
+      "id": "butter",
+      "qty": 30,
+      "unit": "g",
+      "name": "Butter oder Öl",
+      "note": "zum Braten"
+     },
+     {
+      "id": "fuellung",
+      "qty": 1,
+      "unit": "",
+      "name": "Füllung nach Wahl",
+      "note": "Apfelmus, Nuss-Nougat-Creme, Marmelade oder Zimtzucker"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Teig",
+    "text": "{milch}, {eier}, {mehl}, {zucker} und {salz} in den Mixtopf geben und glatt rühren.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "5"
+    },
+    "tip": "Mit dem Spatel einmal den Boden lösen und nochmal kurz mixen."
+   },
+   {
+    "group": "Teig",
+    "text": "Teig ruhen lassen, dann werden die Pfannkuchen besonders zart.",
+    "timer": 600,
+    "timerLabel": "Teig"
+   },
+   {
+    "group": "Braten & Füllen",
+    "text": "Etwas {butter} in einer Pfanne erhitzen, eine kleine Kelle Teig hineingeben, durch Schwenken verteilen und von jeder Seite goldbraun backen.",
+    "tip": "Mittlere Hitze. Ergibt etwa 10 Stück. Fertige im Ofen bei 50 °C warm halten."
+   },
+   {
+    "group": "Servieren",
+    "text": "Mit {fuellung} bestreichen, aufrollen und servieren."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Süß",
+   "Vegetarisch"
+  ],
+  "order": 10,
+  "image": "img/pfannkuchen.jpg",
+  "imageCredit": "Skitter Photo, StockSnap, CC0"
+ },
+ {
+  "id": "kaiserschmarrn",
+  "title": "Kaiserschmarrn",
+  "subtitle": "Fluffig gerissener Pfannkuchen mit Puderzucker und Apfelmus",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "mittel",
+  "times": {
+   "prep": 15,
+   "total": 30
+  },
+  "art": {
+   "style": "flat",
+   "base": "#e9b95c",
+   "topping": "#f5eee0"
+  },
+  "groups": [
+   {
+    "name": "Teig",
+    "items": [
+     {
+      "id": "eier",
+      "qty": 4,
+      "unit": "",
+      "name": "Eier",
+      "note": "getrennt"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     },
+     {
+      "id": "milch",
+      "qty": 250,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "mehl",
+      "qty": 150,
+      "unit": "g",
+      "name": "Weizenmehl"
+     },
+     {
+      "id": "zucker",
+      "qty": 30,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "vanille",
+      "qty": 1,
+      "unit": "Päckchen",
+      "name": "Vanillezucker"
+     }
+    ]
+   },
+   {
+    "name": "Pfanne",
+    "items": [
+     {
+      "id": "butter",
+      "qty": 30,
+      "unit": "g",
+      "name": "Butter"
+     },
+     {
+      "id": "rosinen",
+      "qty": 30,
+      "unit": "g",
+      "name": "Rosinen",
+      "note": "nach Belieben"
+     },
+     {
+      "id": "puderzucker",
+      "qty": 2,
+      "unit": "EL",
+      "name": "Puderzucker"
+     },
+     {
+      "id": "apfelmus",
+      "qty": 400,
+      "unit": "g",
+      "name": "Apfelmus"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Teig",
+    "text": "Rühraufsatz einsetzen. Eiweiß von {eier} mit {salz} in den Mixtopf geben und steif schlagen. Umfüllen.",
+    "tm": {
+     "time": 180,
+     "temp": null,
+     "speed": "3.5",
+     "whisk": true
+    },
+    "tip": "Mixtopf muss sauber und fettfrei sein, sonst wird der Eischnee nicht fest."
+   },
+   {
+    "group": "Teig",
+    "text": "Rühraufsatz entfernen. Eigelb, {milch}, {mehl}, {zucker} und {vanille} in den Mixtopf geben und verrühren.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "4"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "Eischnee mit dem Spatel vorsichtig unterheben."
+   },
+   {
+    "group": "Pfanne",
+    "text": "{butter} in einer großen Pfanne schmelzen, Teig hineingeben, nach Belieben {rosinen} darüberstreuen und bei mittlerer Hitze stocken lassen.",
+    "timer": 300,
+    "timerLabel": "Schmarrn",
+    "tip": "Deckel drauf, dann geht er schön auf."
+   },
+   {
+    "group": "Pfanne",
+    "text": "Vierteln, wenden, mit zwei Gabeln in Stücke reißen und noch 2 bis 3 Minuten rundum goldbraun braten."
+   },
+   {
+    "group": "Servieren",
+    "text": "Mit {puderzucker} bestäuben und mit {apfelmus} servieren."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Süß",
+   "Vegetarisch",
+   "Österreichisch"
+  ],
+  "order": 11
+ },
+ {
+  "id": "waffeln",
+  "title": "Waffeln",
+  "subtitle": "Knusprig außen, weich innen, der Lieblingsteig für das Waffeleisen",
+  "servings": 10,
+  "maxServings": 20,
+  "servingUnit": "Waffeln",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 10,
+   "total": 35
+  },
+  "art": {
+   "style": "flat",
+   "base": "#e3ae55",
+   "topping": "#f3e1b8"
+  },
+  "groups": [
+   {
+    "name": "Teig",
+    "items": [
+     {
+      "id": "butter",
+      "qty": 125,
+      "unit": "g",
+      "name": "Butter",
+      "note": "weich"
+     },
+     {
+      "id": "zucker",
+      "qty": 75,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "vanille",
+      "qty": 1,
+      "unit": "Päckchen",
+      "name": "Vanillezucker"
+     },
+     {
+      "id": "eier",
+      "qty": 3,
+      "unit": "",
+      "name": "Eier"
+     },
+     {
+      "id": "mehl",
+      "qty": 250,
+      "unit": "g",
+      "name": "Weizenmehl"
+     },
+     {
+      "id": "backpulver",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Backpulver"
+     },
+     {
+      "id": "milch",
+      "qty": 250,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     }
+    ]
+   },
+   {
+    "name": "Servieren",
+    "items": [
+     {
+      "id": "puderzucker",
+      "qty": 1,
+      "unit": "EL",
+      "name": "Puderzucker"
+     },
+     {
+      "id": "obst",
+      "qty": 250,
+      "unit": "g",
+      "name": "Obst oder Sahne",
+      "note": "nach Belieben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Teig",
+    "text": "{butter}, {zucker} und {vanille} in den Mixtopf geben und cremig rühren.",
+    "tm": {
+     "time": 30,
+     "temp": null,
+     "speed": "4"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "{eier} zugeben und unterrühren.",
+    "tm": {
+     "time": 30,
+     "temp": null,
+     "speed": "4"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "{mehl}, {backpulver}, {milch} und {salz} zugeben und zu einem glatten Teig verrühren.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "5"
+    },
+    "tip": "Kurz mit dem Spatel nach unten schieben und 5 Sekunden nachmixen."
+   },
+   {
+    "group": "Backen",
+    "text": "Waffeleisen vorheizen und leicht fetten. Je eine kleine Kelle Teig hineingeben und goldbraun backen.",
+    "timer": 180,
+    "timerLabel": "Waffel",
+    "tip": "Fertige Waffeln nebeneinander auf ein Gitter legen, gestapelt werden sie weich."
+   },
+   {
+    "group": "Servieren",
+    "text": "Mit {puderzucker} bestäuben und mit {obst} servieren."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Süß",
+   "Backen",
+   "Vegetarisch"
+  ],
+  "order": 12,
+  "image": "img/waffeln.jpg",
+  "imageCredit": "Mx. Granger, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "kartoffelpueree-fischstaebchen",
+  "title": "Kartoffelpüree mit Fischstäbchen",
+  "subtitle": "Luftiges Püree aus dem Thermomix, dazu knusprige Fischstäbchen aus dem Ofen",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 10,
+   "total": 40
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f3e4b0",
+   "topping": "#d9902e"
+  },
+  "groups": [
+   {
+    "name": "Püree",
+    "items": [
+     {
+      "id": "kartoffeln",
+      "qty": 1000,
+      "unit": "g",
+      "name": "mehligkochende Kartoffeln",
+      "note": "geschält, in Stücken"
+     },
+     {
+      "id": "milch",
+      "qty": 400,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "butter",
+      "qty": 30,
+      "unit": "g",
+      "name": "Butter"
+     },
+     {
+      "id": "muskat",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Muskat"
+     }
+    ]
+   },
+   {
+    "name": "Dazu",
+    "items": [
+     {
+      "id": "fischstaebchen",
+      "qty": 20,
+      "unit": "",
+      "name": "Fischstäbchen",
+      "note": "TK"
+     },
+     {
+      "id": "erbsen",
+      "qty": 300,
+      "unit": "g",
+      "name": "Erbsen",
+      "note": "TK, nach Belieben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Ofen",
+    "text": "Backofen vorheizen und Fischstäbchen auf ein Blech mit Backpapier legen.",
+    "oven": {
+     "temp": 220,
+     "mode": "Ober-/Unterhitze"
+    }
+   },
+   {
+    "group": "Püree",
+    "text": "Rühraufsatz einsetzen. {kartoffeln}, {milch} und {salz} in den Mixtopf geben und garen.",
+    "tm": {
+     "time": 1500,
+     "temp": 98,
+     "speed": "1",
+     "whisk": true
+    },
+    "tip": "Sobald der Thermomix läuft, die {fischstaebchen} in den Ofen schieben."
+   },
+   {
+    "group": "Ofen",
+    "text": "Fischstäbchen backen, nach der Hälfte der Zeit wenden.",
+    "oven": {
+     "temp": 220,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 1080,
+    "timerLabel": "Fischstäbchen",
+    "tip": "Die {erbsen} in einem kleinen Topf mit etwas Wasser 5 Minuten garen."
+   },
+   {
+    "group": "Püree",
+    "text": "{butter} und {muskat} zugeben und locker aufschlagen.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "3",
+     "whisk": true
+    },
+    "tip": "Nicht länger und nicht schneller, sonst wird das Püree klebrig."
+   },
+   {
+    "group": "Servieren",
+    "text": "Püree mit Fischstäbchen und Erbsen anrichten.",
+    "tip": "Ein Klecks Ketchup oder Remoulade dazu, und alle sind glücklich."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Fisch"
+  ],
+  "order": 13,
+  "image": "img/kartoffelpueree-fischstaebchen.jpg",
+  "imageCredit": "Andy Li, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "reibekuchen",
+  "title": "Reibekuchen mit Apfelmus",
+  "subtitle": "Knusprige Kartoffelpuffer, dazu frisches Apfelmus aus dem Thermomix",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "mittel",
+  "times": {
+   "prep": 30,
+   "total": 60
+  },
+  "art": {
+   "style": "flat",
+   "base": "#d9a24a",
+   "topping": "#f1dca0"
+  },
+  "groups": [
+   {
+    "name": "Apfelmus",
+    "items": [
+     {
+      "id": "aepfel",
+      "qty": 600,
+      "unit": "g",
+      "name": "Äpfel",
+      "note": "geviertelt, entkernt"
+     },
+     {
+      "id": "wasser",
+      "qty": 50,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "zucker",
+      "qty": 1,
+      "unit": "EL",
+      "name": "Zucker",
+      "note": "nach Belieben"
+     },
+     {
+      "id": "zitrone",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Zitronensaft"
+     }
+    ]
+   },
+   {
+    "name": "Reibekuchen",
+    "items": [
+     {
+      "id": "kartoffeln",
+      "qty": 1000,
+      "unit": "g",
+      "name": "festkochende Kartoffeln",
+      "note": "geschält, in Stücken"
+     },
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "eier",
+      "qty": 2,
+      "unit": "",
+      "name": "Eier"
+     },
+     {
+      "id": "mehl",
+      "qty": 2,
+      "unit": "EL",
+      "name": "Mehl"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "muskat",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Muskat"
+     },
+     {
+      "id": "oel",
+      "qty": 100,
+      "unit": "g",
+      "name": "Rapsöl",
+      "note": "zum Braten"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Apfelmus",
+    "text": "{aepfel}, {wasser}, {zucker} und {zitrone} in den Mixtopf geben und weich dünsten.",
+    "tm": {
+     "time": 720,
+     "temp": 100,
+     "speed": "1"
+    }
+   },
+   {
+    "group": "Apfelmus",
+    "text": "Messbecher einsetzen und pürieren. Umfüllen und abkühlen lassen, Mixtopf ausspülen.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "4–8"
+    },
+    "tip": "Langsam hochdrehen, das Apfelmus ist heiß."
+   },
+   {
+    "group": "Reibekuchen",
+    "text": "Die Hälfte der {kartoffeln} und {zwiebel} in den Mixtopf geben und grob raspeln. Umfüllen und mit den restlichen Kartoffeln wiederholen.",
+    "tm": {
+     "time": 4,
+     "temp": null,
+     "speed": "5"
+    },
+    "tip": "Nur kurz, sonst wird es Brei."
+   },
+   {
+    "group": "Reibekuchen",
+    "text": "Die Masse in einem sauberen Küchentuch kräftig auspressen und zurück in den Mixtopf geben."
+   },
+   {
+    "group": "Reibekuchen",
+    "text": "{eier}, {mehl}, {salz} und {muskat} zugeben und vermischen.",
+    "tm": {
+     "time": 15,
+     "temp": null,
+     "speed": "3",
+     "reverse": true
+    }
+   },
+   {
+    "group": "Braten",
+    "text": "{oel} in einer Pfanne erhitzen. Je 1 EL Masse hineingeben, flach drücken und von jeder Seite knusprig braten.",
+    "timer": 240,
+    "timerLabel": "Reibekuchen",
+    "tip": "Auf Küchenpapier abtropfen lassen und im Ofen bei 80 °C warm halten."
+   },
+   {
+    "group": "Servieren",
+    "text": "Reibekuchen mit dem Apfelmus servieren."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Vegetarisch"
+  ],
+  "order": 14,
+  "image": "img/reibekuchen.jpg",
+  "imageCredit": "Antanana, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "chicken-nuggets",
+  "title": "Chicken Nuggets",
+  "subtitle": "Saftiges Hähnchen in Cornflakes-Kruste, im Ofen gebacken statt frittiert",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 20,
+   "total": 40
+  },
+  "art": {
+   "style": "flat",
+   "base": "#e2a64c",
+   "topping": "#f2d48a"
+  },
+  "groups": [
+   {
+    "name": "Panade",
+    "items": [
+     {
+      "id": "cornflakes",
+      "qty": 100,
+      "unit": "g",
+      "name": "Cornflakes",
+      "note": "ungezuckert"
+     },
+     {
+      "id": "paprika",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Paprikapulver edelsüß"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "mehl",
+      "qty": 50,
+      "unit": "g",
+      "name": "Mehl"
+     },
+     {
+      "id": "eier",
+      "qty": 2,
+      "unit": "",
+      "name": "Eier"
+     }
+    ]
+   },
+   {
+    "name": "Nuggets",
+    "items": [
+     {
+      "id": "haehnchen",
+      "qty": 500,
+      "unit": "g",
+      "name": "Hähnchenbrustfilet"
+     },
+     {
+      "id": "oel",
+      "qty": 2,
+      "unit": "EL",
+      "name": "Öl"
+     }
+    ]
+   },
+   {
+    "name": "Dip",
+    "items": [
+     {
+      "id": "joghurt",
+      "qty": 150,
+      "unit": "g",
+      "name": "Naturjoghurt"
+     },
+     {
+      "id": "ketchup",
+      "qty": 2,
+      "unit": "EL",
+      "name": "Ketchup"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Ofen",
+    "text": "Backofen vorheizen und ein Blech mit Backpapier belegen.",
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    }
+   },
+   {
+    "group": "Panade",
+    "text": "{cornflakes}, {paprika} und {salz} in den Mixtopf geben und zu groben Bröseln zerkleinern. In einen tiefen Teller füllen.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    }
+   },
+   {
+    "group": "Panade",
+    "text": "{mehl} in einen zweiten Teller geben, {eier} in einem dritten verquirlen."
+   },
+   {
+    "group": "Nuggets",
+    "text": "{haehnchen} in mundgerechte Stücke schneiden, nacheinander in Mehl, Ei und Bröseln wenden und aufs Blech legen.",
+    "tip": "Eine Hand für trocken, eine für nass, dann klebt nichts an den Fingern."
+   },
+   {
+    "group": "Nuggets",
+    "text": "Mit {oel} beträufeln und goldbraun backen, nach der Hälfte der Zeit wenden.",
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 1080,
+    "timerLabel": "Nuggets"
+   },
+   {
+    "group": "Dip",
+    "text": "{joghurt} und {ketchup} verrühren und zu den Nuggets servieren.",
+    "tip": "Dazu passen Ofenkartoffeln oder Gurkensticks."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Fleisch",
+   "Backen"
+  ],
+  "order": 15,
+  "image": "img/chicken-nuggets.jpg",
+  "imageCredit": "Mike Moloney, StockSnap, CC0"
+ },
+ {
+  "id": "frikadellen",
+  "title": "Mini-Frikadellen",
+  "subtitle": "Kleine, saftige Fleischbällchen, mild gewürzt und perfekt für Kinderhände",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 20,
+   "total": 40
+  },
+  "art": {
+   "style": "flat",
+   "base": "#b8743c",
+   "topping": "#7a4220"
+  },
+  "groups": [
+   {
+    "name": "Frikadellen",
+    "items": [
+     {
+      "id": "broetchen",
+      "qty": 1,
+      "unit": "",
+      "name": "altes Brötchen"
+     },
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "oel1",
+      "qty": 10,
+      "unit": "g",
+      "name": "Öl"
+     },
+     {
+      "id": "hack",
+      "qty": 500,
+      "unit": "g",
+      "name": "gemischtes Hackfleisch"
+     },
+     {
+      "id": "ei",
+      "qty": 1,
+      "unit": "",
+      "name": "Ei"
+     },
+     {
+      "id": "senf",
+      "qty": 1,
+      "unit": "TL",
+      "name": "mittelscharfer Senf"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "paprika",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Paprikapulver edelsüß"
+     },
+     {
+      "id": "pfeffer",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Pfeffer"
+     }
+    ]
+   },
+   {
+    "name": "Braten",
+    "items": [
+     {
+      "id": "oel2",
+      "qty": 3,
+      "unit": "EL",
+      "name": "Öl",
+      "note": "zum Braten"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Frikadellen",
+    "text": "{broetchen} in kaltem Wasser einweichen.",
+    "timer": 600,
+    "timerLabel": "Brötchen"
+   },
+   {
+    "group": "Frikadellen",
+    "text": "{zwiebel} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 4,
+     "temp": null,
+     "speed": "5"
+    }
+   },
+   {
+    "group": "Frikadellen",
+    "text": "{oel1} zugeben und dünsten.",
+    "tm": {
+     "time": 180,
+     "temp": 120,
+     "speed": "1"
+    },
+    "tip": "Gedünstete Zwiebeln schmecken milder, das mögen Kinder lieber."
+   },
+   {
+    "group": "Frikadellen",
+    "text": "Brötchen gut ausdrücken und mit {hack}, {ei}, {senf}, {salz}, {paprika} und {pfeffer} zugeben und vermengen.",
+    "tm": {
+     "time": 40,
+     "temp": null,
+     "speed": "3",
+     "reverse": true
+    }
+   },
+   {
+    "group": "Frikadellen",
+    "text": "Mit nassen Händen 14 bis 16 kleine Bällchen formen und leicht flach drücken."
+   },
+   {
+    "group": "Braten",
+    "text": "{oel2} in einer Pfanne erhitzen und die Frikadellen bei mittlerer Hitze rundum braun braten.",
+    "timer": 540,
+    "timerLabel": "Frikadellen",
+    "tip": "Innen dürfen sie nicht mehr rosa sein."
+   },
+   {
+    "group": "Servieren",
+    "text": "Warm oder kalt servieren.",
+    "tip": "Dazu passen Kartoffelpüree, Brötchen oder Gemüsesticks."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Fleisch"
+  ],
+  "order": 16,
+  "image": "img/frikadellen.jpg",
+  "imageCredit": "Obsidian Soul, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "buchstabensuppe",
+  "title": "Buchstabensuppe",
+  "subtitle": "Klare Gemüsebrühe mit Buchstabennudeln zum Namen-Suchen",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 10,
+   "total": 30
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f0c25a",
+   "topping": "#e07a2e"
+  },
+  "groups": [
+   {
+    "name": "Suppe",
+    "items": [
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "moehren",
+      "qty": 2,
+      "unit": "",
+      "name": "Möhren",
+      "note": "in Stücken"
+     },
+     {
+      "id": "sellerie",
+      "qty": 1,
+      "unit": "",
+      "name": "Stange Staudensellerie",
+      "note": "in Stücken"
+     },
+     {
+      "id": "oel",
+      "qty": 10,
+      "unit": "g",
+      "name": "Öl"
+     },
+     {
+      "id": "wasser",
+      "qty": 1200,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "bruehe",
+      "qty": 2,
+      "unit": "TL",
+      "name": "Gemüsebrühpulver"
+     },
+     {
+      "id": "nudeln",
+      "qty": 80,
+      "unit": "g",
+      "name": "Buchstabennudeln"
+     },
+     {
+      "id": "petersilie",
+      "qty": 1,
+      "unit": "EL",
+      "name": "Petersilie",
+      "note": "gehackt, nach Belieben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Suppe",
+    "text": "{zwiebel}, {moehren} und {sellerie} in den Mixtopf geben und in kleine Würfel zerkleinern.",
+    "tm": {
+     "time": 4,
+     "temp": null,
+     "speed": "4"
+    }
+   },
+   {
+    "group": "Suppe",
+    "text": "{oel} zugeben und dünsten.",
+    "tm": {
+     "time": 180,
+     "temp": 120,
+     "speed": "1"
+    }
+   },
+   {
+    "group": "Suppe",
+    "text": "{wasser} und {bruehe} zugeben und kochen.",
+    "tm": {
+     "time": 720,
+     "temp": 100,
+     "speed": "1",
+     "reverse": true
+    },
+    "tip": "Garkorb als Spritzschutz auf den Deckel."
+   },
+   {
+    "group": "Suppe",
+    "text": "{nudeln} zugeben und garen.",
+    "tm": {
+     "time": 360,
+     "temp": 100,
+     "speed": "1",
+     "reverse": true
+    }
+   },
+   {
+    "group": "Servieren",
+    "text": "Mit {petersilie} bestreuen und etwas abkühlen lassen.",
+    "tip": "Für Kinder vorher einen Löffel probieren, Suppe bleibt lange heiß."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Suppe",
+   "Vegetarisch"
+  ],
+  "order": 17
+ },
+ {
+  "id": "kartoffelsuppe",
+  "title": "Kartoffelsuppe mit Würstchen",
+  "subtitle": "Cremige Kartoffelsuppe mit Möhre und Würstchenscheiben",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 10,
+   "total": 40
+  },
+  "art": {
+   "style": "flat",
+   "base": "#ead79a",
+   "topping": "#b5532e"
+  },
+  "groups": [
+   {
+    "name": "Suppe",
+    "items": [
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "oel",
+      "qty": 20,
+      "unit": "g",
+      "name": "Öl"
+     },
+     {
+      "id": "kartoffeln",
+      "qty": 600,
+      "unit": "g",
+      "name": "mehligkochende Kartoffeln",
+      "note": "geschält, in Stücken"
+     },
+     {
+      "id": "moehren",
+      "qty": 2,
+      "unit": "",
+      "name": "Möhren",
+      "note": "in Stücken"
+     },
+     {
+      "id": "wasser",
+      "qty": 900,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "bruehe",
+      "qty": 2,
+      "unit": "TL",
+      "name": "Gemüsebrühpulver"
+     },
+     {
+      "id": "majoran",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Majoran",
+      "note": "getrocknet"
+     },
+     {
+      "id": "sahne",
+      "qty": 100,
+      "unit": "g",
+      "name": "Sahne"
+     },
+     {
+      "id": "salz",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Salz"
+     }
+    ]
+   },
+   {
+    "name": "Einlage",
+    "items": [
+     {
+      "id": "wuerstchen",
+      "qty": 4,
+      "unit": "",
+      "name": "Wiener Würstchen",
+      "note": "in Scheiben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Suppe",
+    "text": "{zwiebel} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    }
+   },
+   {
+    "group": "Suppe",
+    "text": "{oel} zugeben und dünsten.",
+    "tm": {
+     "time": 180,
+     "temp": 120,
+     "speed": "1"
+    }
+   },
+   {
+    "group": "Suppe",
+    "text": "{kartoffeln}, {moehren}, {wasser}, {bruehe} und {majoran} zugeben und garen.",
+    "tm": {
+     "time": 1200,
+     "temp": 100,
+     "speed": "1"
+    },
+    "tip": "Garkorb als Spritzschutz auf den Deckel."
+   },
+   {
+    "group": "Suppe",
+    "text": "{sahne} und {salz} zugeben, Messbecher einsetzen und pürieren.",
+    "tm": {
+     "time": 40,
+     "temp": null,
+     "speed": "4–8"
+    },
+    "tip": "Langsam hochdrehen, die Suppe ist heiß."
+   },
+   {
+    "group": "Einlage",
+    "text": "{wuerstchen} zugeben und erwärmen.",
+    "tm": {
+     "time": 240,
+     "temp": 90,
+     "speed": "1",
+     "reverse": true
+    }
+   },
+   {
+    "group": "Servieren",
+    "text": "Abschmecken und servieren.",
+    "tip": "Wer mag, gibt geröstete Brotwürfel obendrauf."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Suppe",
+   "Hauptgericht",
+   "Fleisch"
+  ],
+  "order": 18,
+  "image": "img/kartoffelsuppe.jpg",
+  "imageCredit": "Gerda Arendt, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "nudelauflauf",
+  "title": "Nudelauflauf mit Schinken",
+  "subtitle": "Penne in Käsesoße mit Schinken und Erbsen, goldbraun überbacken",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 20,
+   "total": 50
+  },
+  "art": {
+   "style": "flat",
+   "base": "#efc56a",
+   "topping": "#e8a33c"
+  },
+  "groups": [
+   {
+    "name": "Auflauf",
+    "items": [
+     {
+      "id": "gouda",
+      "qty": 150,
+      "unit": "g",
+      "name": "Gouda",
+      "note": "in Stücken"
+     },
+     {
+      "id": "nudeln",
+      "qty": 300,
+      "unit": "g",
+      "name": "Penne"
+     },
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "butter",
+      "qty": 30,
+      "unit": "g",
+      "name": "Butter"
+     },
+     {
+      "id": "mehl",
+      "qty": 30,
+      "unit": "g",
+      "name": "Mehl"
+     },
+     {
+      "id": "milch",
+      "qty": 500,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "muskat",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Muskat"
+     },
+     {
+      "id": "schinken",
+      "qty": 150,
+      "unit": "g",
+      "name": "Kochschinken",
+      "note": "gewürfelt"
+     },
+     {
+      "id": "erbsen",
+      "qty": 150,
+      "unit": "g",
+      "name": "Erbsen",
+      "note": "TK"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Auflauf",
+    "text": "Backofen vorheizen. {gouda} in den Mixtopf geben, reiben und umfüllen.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "6"
+    },
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    },
+    "tip": "Weicher Käse schmiert schnell, deshalb nur kurz."
+   },
+   {
+    "group": "Auflauf",
+    "text": "{nudeln} in Salzwasser 2 Minuten kürzer als auf der Packung angegeben kochen und abgießen.",
+    "timer": 480,
+    "timerLabel": "Nudeln",
+    "tip": "Ohne Thermomix, im Topf. Im Ofen garen sie fertig."
+   },
+   {
+    "group": "Auflauf",
+    "text": "{zwiebel} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    }
+   },
+   {
+    "group": "Auflauf",
+    "text": "{butter} zugeben und dünsten.",
+    "tm": {
+     "time": 180,
+     "temp": 120,
+     "speed": "1"
+    }
+   },
+   {
+    "group": "Auflauf",
+    "text": "{mehl}, {milch}, {salz} und {muskat} zugeben und zu einer Soße kochen.",
+    "tm": {
+     "time": 420,
+     "temp": 90,
+     "speed": "4"
+    }
+   },
+   {
+    "group": "Auflauf",
+    "text": "Nudeln, {schinken}, {erbsen} und die Hälfte vom Käse in einer Auflaufform mit der Soße mischen. Restlichen Käse darüberstreuen."
+   },
+   {
+    "group": "Backen",
+    "text": "Goldbraun überbacken.",
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 1200,
+    "timerLabel": "Auflauf"
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Fleisch",
+   "Backen"
+  ],
+  "order": 19,
+  "image": "img/nudelauflauf.jpg",
+  "imageCredit": "SpencerWMartin, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "pizzaschnecken",
+  "title": "Pizzaschnecken",
+  "subtitle": "Hefeteig mit Tomate, Schinken und Käse, gerollt und in Scheiben gebacken",
+  "servings": 16,
+  "maxServings": 32,
+  "servingUnit": "Stück",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 25,
+   "total": 95
+  },
+  "art": {
+   "style": "flat",
+   "base": "#e6b464",
+   "topping": "#c8432c"
+  },
+  "groups": [
+   {
+    "name": "Teig",
+    "items": [
+     {
+      "id": "wasser",
+      "qty": 200,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "hefe",
+      "qty": 15,
+      "unit": "g",
+      "name": "frische Hefe",
+      "note": "oder ½ Päckchen Trockenhefe"
+     },
+     {
+      "id": "zucker",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Zucker"
+     },
+     {
+      "id": "mehl",
+      "qty": 400,
+      "unit": "g",
+      "name": "Weizenmehl Type 550"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "oel",
+      "qty": 30,
+      "unit": "g",
+      "name": "Olivenöl"
+     }
+    ]
+   },
+   {
+    "name": "Belag",
+    "items": [
+     {
+      "id": "gouda",
+      "qty": 150,
+      "unit": "g",
+      "name": "Gouda",
+      "note": "in Stücken"
+     },
+     {
+      "id": "passata",
+      "qty": 100,
+      "unit": "g",
+      "name": "passierte Tomaten"
+     },
+     {
+      "id": "oregano",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Oregano",
+      "note": "getrocknet"
+     },
+     {
+      "id": "schinken",
+      "qty": 100,
+      "unit": "g",
+      "name": "Kochschinken",
+      "note": "gewürfelt"
+     },
+     {
+      "id": "mais",
+      "qty": 100,
+      "unit": "g",
+      "name": "Mais",
+      "note": "abgetropft, nach Belieben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Belag",
+    "text": "{gouda} in den Mixtopf geben, reiben und umfüllen.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "6"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "{wasser}, {hefe} und {zucker} in den Mixtopf geben und erwärmen.",
+    "tm": {
+     "time": 120,
+     "temp": 37,
+     "speed": "2"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "{mehl}, {salz} und {oel} zugeben und kneten.",
+    "tm": {
+     "time": 120,
+     "temp": null,
+     "speed": "",
+     "mode": "dough"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "Teig in einer Schüssel abgedeckt gehen lassen.",
+    "timer": 2700,
+    "timerLabel": "Teig",
+    "tip": "Er soll sich etwa verdoppeln."
+   },
+   {
+    "group": "Belag",
+    "text": "Backofen vorheizen. Teig auf bemehlter Fläche zu einem Rechteck (ca. 30 × 40 cm) ausrollen.",
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    }
+   },
+   {
+    "group": "Belag",
+    "text": "{passata} mit {oregano} darauf verstreichen, {schinken}, {mais} und Käse darüber verteilen.",
+    "tip": "Kinder können hier super mithelfen."
+   },
+   {
+    "group": "Belag",
+    "text": "Von der langen Seite her aufrollen, in 2 cm dicke Scheiben schneiden und auf ein Blech mit Backpapier legen."
+   },
+   {
+    "group": "Backen",
+    "text": "Goldbraun backen.",
+    "oven": {
+     "temp": 200,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 1020,
+    "timerLabel": "Pizzaschnecken",
+    "tip": "Schmecken auch kalt, ideal für die Brotdose."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Backen",
+   "Snack",
+   "Fleisch"
+  ],
+  "order": 20
+ },
+ {
+  "id": "haehnchen-curry",
+  "title": "Mildes Hähnchen-Curry mit Reis",
+  "subtitle": "Cremiges Kokos-Curry mit Möhre und Erbsen, ganz ohne Schärfe",
+  "servings": 4,
+  "maxServings": 6,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 15,
+   "total": 50
+  },
+  "art": {
+   "style": "flat",
+   "base": "#f3d27a",
+   "topping": "#e3a23a"
+  },
+  "groups": [
+   {
+    "name": "Reis",
+    "items": [
+     {
+      "id": "wasser",
+      "qty": 1000,
+      "unit": "g",
+      "name": "Wasser"
+     },
+     {
+      "id": "salz1",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "reis",
+      "qty": 250,
+      "unit": "g",
+      "name": "Basmatireis"
+     }
+    ]
+   },
+   {
+    "name": "Curry",
+    "items": [
+     {
+      "id": "zwiebel",
+      "qty": 1,
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert"
+     },
+     {
+      "id": "moehre",
+      "qty": 1,
+      "unit": "",
+      "name": "Möhre",
+      "note": "in Stücken"
+     },
+     {
+      "id": "oel",
+      "qty": 20,
+      "unit": "g",
+      "name": "Öl"
+     },
+     {
+      "id": "curry",
+      "qty": 2,
+      "unit": "TL",
+      "name": "Currypulver",
+      "note": "mild"
+     },
+     {
+      "id": "haehnchen",
+      "qty": 500,
+      "unit": "g",
+      "name": "Hähnchenbrustfilet",
+      "note": "in Stücken"
+     },
+     {
+      "id": "kokos",
+      "qty": 400,
+      "unit": "g",
+      "name": "Kokosmilch"
+     },
+     {
+      "id": "bruehe",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Gemüsebrühpulver"
+     },
+     {
+      "id": "honig",
+      "qty": 1,
+      "unit": "TL",
+      "name": "Honig"
+     },
+     {
+      "id": "salz2",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Salz"
+     },
+     {
+      "id": "erbsen",
+      "qty": 150,
+      "unit": "g",
+      "name": "Erbsen",
+      "note": "TK"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Reis",
+    "text": "{wasser} und {salz1} in den Mixtopf geben. Garkorb einhängen, {reis} einwiegen und unter fließendem Wasser abspülen. Garen.",
+    "tm": {
+     "time": 1080,
+     "temp": 100,
+     "speed": "4"
+    },
+    "tip": "Fertigen Reis mit dem Garkorb in eine Schüssel stellen und abdecken. Mixtopf leeren."
+   },
+   {
+    "group": "Curry",
+    "text": "{zwiebel} und {moehre} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    }
+   },
+   {
+    "group": "Curry",
+    "text": "{oel} und {curry} zugeben und dünsten.",
+    "tm": {
+     "time": 180,
+     "temp": 120,
+     "speed": "1"
+    }
+   },
+   {
+    "group": "Curry",
+    "text": "{haehnchen}, {kokos}, {bruehe}, {honig} und {salz2} zugeben und garen.",
+    "tm": {
+     "time": 720,
+     "temp": 100,
+     "speed": "1",
+     "reverse": true
+    },
+    "tip": "Garkorb als Spritzschutz auf den Deckel."
+   },
+   {
+    "group": "Curry",
+    "text": "{erbsen} zugeben und fertig garen.",
+    "tm": {
+     "time": 180,
+     "temp": 100,
+     "speed": "1",
+     "reverse": true
+    }
+   },
+   {
+    "group": "Servieren",
+    "text": "Curry mit dem Reis servieren.",
+    "tip": "Erwachsene würzen am Tisch mit Chili nach."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Hauptgericht",
+   "Fleisch",
+   "Asiatisch"
+  ],
+  "order": 21,
+  "image": "img/haehnchen-curry.jpg",
+  "imageCredit": "Miansari66, Wikimedia Commons, CC0 (gemeinfrei)"
+ },
+ {
+  "id": "schokopudding",
+  "title": "Schokoladenpudding",
+  "subtitle": "Echter Pudding mit Vollmilchschokolade statt aus der Tüte",
+  "servings": 4,
+  "maxServings": 8,
+  "servingUnit": "Portionen",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 5,
+   "total": 130
+  },
+  "art": {
+   "style": "flat",
+   "base": "#6b3e26",
+   "topping": "#a86a45"
+  },
+  "groups": [
+   {
+    "name": "Pudding",
+    "items": [
+     {
+      "id": "schokolade",
+      "qty": 50,
+      "unit": "g",
+      "name": "Vollmilchschokolade",
+      "note": "in Stücken"
+     },
+     {
+      "id": "milch",
+      "qty": 500,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "zucker",
+      "qty": 50,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "staerke",
+      "qty": 35,
+      "unit": "g",
+      "name": "Speisestärke"
+     },
+     {
+      "id": "kakao",
+      "qty": 20,
+      "unit": "g",
+      "name": "Kakaopulver",
+      "note": "ungesüßt"
+     },
+     {
+      "id": "vanille",
+      "qty": 1,
+      "unit": "Päckchen",
+      "name": "Vanillezucker"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Pudding",
+    "text": "{schokolade} in den Mixtopf geben und zerkleinern.",
+    "tm": {
+     "time": 10,
+     "temp": null,
+     "speed": "8"
+    }
+   },
+   {
+    "group": "Pudding",
+    "text": "{milch}, {zucker}, {staerke}, {kakao}, {vanille} und {salz} zugeben und kochen.",
+    "tm": {
+     "time": 480,
+     "temp": 90,
+     "speed": "4"
+    },
+    "tip": "Der Pudding dickt erst gegen Ende richtig an."
+   },
+   {
+    "group": "Pudding",
+    "text": "In Schälchen füllen und abkühlen lassen, dann kalt stellen.",
+    "timer": 7200,
+    "timerLabel": "Pudding",
+    "tip": "Frischhaltefolie direkt auf den Pudding legen, dann bildet sich keine Haut."
+   },
+   {
+    "group": "Servieren",
+    "text": "Mit etwas Sahne oder Obst servieren.",
+    "tip": "Warm schmeckt er auch, dann eher wie Schokosoße."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Dessert",
+   "Süß",
+   "Vegetarisch"
+  ],
+  "order": 22
+ },
+ {
+  "id": "bananen-muffins",
+  "title": "Bananen-Muffins",
+  "subtitle": "Saftige Muffins aus reifen Bananen, wenig Zucker und Schokotropfen",
+  "servings": 12,
+  "maxServings": 24,
+  "servingUnit": "Stück",
+  "difficulty": "leicht",
+  "times": {
+   "prep": 15,
+   "total": 45
+  },
+  "art": {
+   "style": "flat",
+   "base": "#d9a65a",
+   "topping": "#5a3a22"
+  },
+  "groups": [
+   {
+    "name": "Teig",
+    "items": [
+     {
+      "id": "bananen",
+      "qty": 2,
+      "unit": "",
+      "name": "reife Bananen",
+      "note": "ca. 250 g, in Stücken"
+     },
+     {
+      "id": "oel",
+      "qty": 80,
+      "unit": "g",
+      "name": "Rapsöl"
+     },
+     {
+      "id": "zucker",
+      "qty": 60,
+      "unit": "g",
+      "name": "Zucker"
+     },
+     {
+      "id": "eier",
+      "qty": 2,
+      "unit": "",
+      "name": "Eier"
+     },
+     {
+      "id": "mehl",
+      "qty": 220,
+      "unit": "g",
+      "name": "Weizenmehl"
+     },
+     {
+      "id": "backpulver",
+      "qty": 2,
+      "unit": "TL",
+      "name": "Backpulver"
+     },
+     {
+      "id": "zimt",
+      "qty": 0.5,
+      "unit": "TL",
+      "name": "Zimt"
+     },
+     {
+      "id": "salz",
+      "qty": 1,
+      "unit": "Prise",
+      "name": "Salz"
+     },
+     {
+      "id": "milch",
+      "qty": 60,
+      "unit": "g",
+      "name": "Milch"
+     },
+     {
+      "id": "schoko",
+      "qty": 50,
+      "unit": "g",
+      "name": "Schokotropfen",
+      "note": "nach Belieben"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "group": "Teig",
+    "text": "Backofen vorheizen und ein Muffinblech mit Papierförmchen auslegen.",
+    "oven": {
+     "temp": 180,
+     "mode": "Ober-/Unterhitze"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "{bananen} in den Mixtopf geben und zerdrücken.",
+    "tm": {
+     "time": 5,
+     "temp": null,
+     "speed": "5"
+    },
+    "tip": "Je brauner die Bananen, desto süßer die Muffins."
+   },
+   {
+    "group": "Teig",
+    "text": "{oel}, {zucker} und {eier} zugeben und verrühren.",
+    "tm": {
+     "time": 20,
+     "temp": null,
+     "speed": "4"
+    }
+   },
+   {
+    "group": "Teig",
+    "text": "{mehl}, {backpulver}, {zimt}, {salz} und {milch} zugeben und kurz verrühren.",
+    "tm": {
+     "time": 10,
+     "temp": null,
+     "speed": "4"
+    },
+    "tip": "Nur so lange, bis kein Mehl mehr zu sehen ist, dann bleiben sie locker."
+   },
+   {
+    "group": "Teig",
+    "text": "{schoko} zugeben und unterheben.",
+    "tm": {
+     "time": 10,
+     "temp": null,
+     "speed": "3",
+     "reverse": true
+    }
+   },
+   {
+    "group": "Backen",
+    "text": "Teig auf die Förmchen verteilen und backen.",
+    "oven": {
+     "temp": 180,
+     "mode": "Ober-/Unterhitze"
+    },
+    "timer": 1320,
+    "timerLabel": "Muffins",
+    "tip": "Stäbchenprobe: Bleibt kein Teig am Holzstäbchen, sind sie fertig."
+   },
+   {
+    "group": "Servieren",
+    "text": "Kurz in der Form, dann auf einem Gitter abkühlen lassen."
+   }
+  ],
+  "tags": [
+   "Kids",
+   "Backen",
+   "Süß",
+   "Vegetarisch",
+   "Snack"
+  ],
+  "order": 23,
+  "image": "img/bananen-muffins.jpg",
+  "imageCredit": "毒島みるく, Wikimedia Commons, CC0 (gemeinfrei)"
  }
 ]
