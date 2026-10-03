@@ -154,27 +154,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 @keyframes pulse{50%{transform:scale(1.06)}}
 .view{animation:in .28s ease-out}
 @keyframes in{from{opacity:.4;transform:translateY(8px)}}
-/* Übergänge: View Transitions (iOS 18+), sonst einfaches Einblenden */
-.vt .view,.quiet .view{animation:none}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.34s;animation-timing-function:cubic-bezier(.22,.8,.24,1);animation-fill-mode:both}
-html[data-dir="forward"]::view-transition-old(root),html[data-dir="next"]::view-transition-old(root){animation-name:vt-out-left}
-html[data-dir="forward"]::view-transition-new(root),html[data-dir="next"]::view-transition-new(root){animation-name:vt-in-right}
-html[data-dir="back"]::view-transition-old(root),html[data-dir="prev"]::view-transition-old(root){animation-name:vt-out-right}
-html[data-dir="back"]::view-transition-new(root),html[data-dir="prev"]::view-transition-new(root){animation-name:vt-in-left}
-html[data-dir="fade"]::view-transition-old(root){animation:vt-fade-out .18s ease both}
-html[data-dir="fade"]::view-transition-new(root){animation:vt-fade-in .24s ease both}
-::view-transition-group(photo){animation-duration:.42s;animation-timing-function:cubic-bezier(.22,.8,.24,1)}
-::view-transition-old(photo),::view-transition-new(photo){height:100%;object-fit:cover}
-::view-transition-group(nav),::view-transition-group(cook-head),::view-transition-group(cook-foot){animation-duration:.34s}
-.nav{view-transition-name:nav}
-.cook-head{view-transition-name:cook-head}
-.cook-foot{view-transition-name:cook-foot}
-@keyframes vt-in-right{from{transform:translateX(32%);opacity:0}}
-@keyframes vt-out-left{to{transform:translateX(-14%);opacity:0}}
-@keyframes vt-in-left{from{transform:translateX(-14%);opacity:0}}
-@keyframes vt-out-right{to{transform:translateX(32%);opacity:0}}
-@keyframes vt-fade-in{from{opacity:0;transform:translateY(6px)}}
-@keyframes vt-fade-out{to{opacity:0}}
+.view{animation:none}
+.leaving *{transition:none!important}
 /* Antippen */
 .hero,.tile,.item,.chip,.cta,.cook-foot button,.timer-btn,.nav a,.back,.x,.stepper button{transition:transform .18s cubic-bezier(.3,.7,.4,1.4),background .2s,color .2s,opacity .2s}
 .hero:active,.tile:active,.item:active{transform:scale(.97)}
@@ -265,17 +246,77 @@ function media(r,style){return r.image?`<img class="photo" data-id="${r.id}" src
 function canvases(){document.querySelectorAll("canvas[data-r]").forEach(cv=>{const r=S.recipes.find(x=>x.id===cv.dataset.r);if(r)paint(cv,r)})}
 
 /* ---------- Ansichten ---------- */
-const VT=!!document.startViewTransition&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
-if(VT)document.documentElement.classList.add("vt");
+/* ---------- Übergänge (eigene Engine, läuft auf jedem iOS) ---------- */
+const REDUCED=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const EASE="cubic-bezier(.32,.72,0,1)",DUR=420;
 function where(){const [id,mode]=decodeURIComponent(location.hash.slice(1)).split(".");const r=S.recipes.find(x=>x.id===id);return {id,r,depth:r?(mode==="kochen"?2:1):0}}
-let last=null;
+let last=null,running=[],lastHash=location.hash;const SCROLL={};
+function visibleEl(root,id){return [...root.querySelectorAll(`[data-id="${id}"]`)].find(e=>{const b=e.getBoundingClientRect();return b.width>0&&b.bottom>0&&b.top<innerHeight&&b.right>0&&b.left<innerWidth})}
+function settle(){running.forEach(f=>f());running=[]}
 function transition(dir,fn,photoId){
-  if(!VT||!S.loaded){fn();return}
-  const h=document.documentElement;h.dataset.dir=dir;
-  const tag=()=>{if(!photoId)return;const el=[...document.querySelectorAll(`[data-id="${photoId}"]`)].find(e=>{const b=e.getBoundingClientRect();return b.bottom>0&&b.top<innerHeight&&b.right>0&&b.left<innerWidth});if(el)el.style.viewTransitionName="photo"};
-  tag();
-  const t=document.startViewTransition(()=>{fn();tag()});
-  t.finished.finally(()=>{delete h.dataset.dir;document.querySelectorAll("[data-id]").forEach(e=>e.style.viewTransitionName="")});
+  settle();
+  const oldApp=$("#app");
+  if(!S.loaded||!oldApp.firstElementChild){fn();lastHash=location.hash;return}
+  // Kochschritt: nur der Inhalt gleitet, Kopf und Fuß bleiben stehen
+  if((dir==="next"||dir==="prev")&&oldApp.querySelector(".cook-body")){
+    const oldBody=oldApp.querySelector(".cook-body").cloneNode(true);const st=oldApp.querySelector(".cook-body").scrollTop;
+    fn();
+    const body=$("#app .cook-body"),cook=$("#app .cook");if(!body)return;
+    const br=body.getBoundingClientRect(),cr=cook.getBoundingClientRect();
+    Object.assign(oldBody.style,{position:"absolute",left:"0",right:"0",top:(br.top-cr.top)+"px",height:br.height+"px",pointerEvents:"none"});
+    cook.appendChild(oldBody);oldBody.scrollTop=st;
+    const s=dir==="next"?1:-1,o={duration:REDUCED?200:360,easing:EASE,fill:"both"};
+    const a1=oldBody.animate(REDUCED?[{opacity:1},{opacity:0}]:[{transform:"none",opacity:1},{transform:`translateX(${-s*28}%)`,opacity:0}],o);
+    const a2=body.animate(REDUCED?[{opacity:0},{opacity:1}]:[{transform:`translateX(${s*40}%)`,opacity:0},{transform:"none",opacity:1}],o);
+    const ons=[...document.querySelectorAll("#app .progress i.on")];
+    if(dir==="next"&&ons.length&&!REDUCED)ons[ons.length-1].animate([{transform:"scaleX(0)",transformOrigin:"left"},{transform:"scaleX(1)",transformOrigin:"left"}],{duration:400,easing:EASE});
+    const done=()=>{oldBody.remove();a2.cancel()};
+    let ended=false;const end=()=>{if(ended)return;ended=true;done()};
+    const fin=()=>{try{a1.finish();a2.finish()}catch{}end()};running.push(fin);
+    a2.finished.then(()=>{running=running.filter(f=>f!==fin);end()}).catch(()=>{});
+    setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},600);
+    return;
+  }
+  // Alte Ansicht einfrieren, neue darunter/darüber aufbauen
+  const y=scrollY;SCROLL[lastHash]=y;
+  oldApp.id="";oldApp.classList.add("leaving");
+  Object.assign(oldApp.style,{position:"fixed",inset:"0",overflow:"hidden",zIndex:dir==="back"?"30":"10",background:"var(--bg)",pointerEvents:"none"});
+  oldApp.scrollTop=y;
+  const app=document.createElement("div");app.id="app";
+  Object.assign(app.style,{position:"fixed",inset:"0",overflow:"hidden",zIndex:dir==="back"?"10":"30",background:"var(--bg)"});
+  oldApp.after(app);
+  fn();lastHash=location.hash;
+  const ty=dir==="back"?(SCROLL[lastHash]||0):0;app.scrollTop=ty;
+  const anims=[];const o={duration:REDUCED?220:DUR,easing:EASE,fill:"both"};
+  // Foto fliegt von der Karte ins große Bild (und zurück)
+  let fly=null,src=null,dst=null;
+  if(photoId&&!REDUCED){src=visibleEl(oldApp,photoId);dst=visibleEl(app,photoId);
+    if(src&&dst&&src.tagName==="IMG"){
+      const a=src.getBoundingClientRect(),b=dst.getBoundingClientRect();
+      fly=src.cloneNode();Object.assign(fly.style,{position:"fixed",left:a.left+"px",top:a.top+"px",width:a.width+"px",height:a.height+"px",margin:"0",zIndex:"50",objectFit:"cover",borderRadius:getComputedStyle(src).borderRadius,aspectRatio:"auto",pointerEvents:"none"});
+      document.body.appendChild(fly);dst.style.visibility="hidden";src.style.visibility="hidden";
+      anims.push(fly.animate([{left:a.left+"px",top:a.top+"px",width:a.width+"px",height:a.height+"px",borderRadius:getComputedStyle(src).borderRadius},{left:b.left+"px",top:b.top+"px",width:b.width+"px",height:b.height+"px",borderRadius:getComputedStyle(dst).borderRadius}],{duration:480,easing:EASE,fill:"both"}));
+    } else src=dst=null;
+  }
+  if(REDUCED||dir==="fade"){
+    anims.push(oldApp.animate([{opacity:1},{opacity:0}],{...o,duration:REDUCED?220:200}));
+    anims.push(app.animate([{opacity:0,transform:REDUCED?"none":"translateY(10px)"},{opacity:1,transform:"none"}],o));
+  } else if(fly){
+    anims.push(oldApp.animate([{opacity:1},{opacity:0}],{...o,duration:300}));
+    anims.push(app.animate([{opacity:0},{opacity:1}],{...o,duration:360}));
+  } else if(dir==="forward"){
+    anims.push(oldApp.animate([{transform:"none",filter:"brightness(1)"},{transform:"translateX(-30%)",filter:"brightness(.85)"}],o));
+    anims.push(app.animate([{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,.12)"},{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
+  } else {
+    anims.push(oldApp.animate([{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,.12)"},{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
+    anims.push(app.animate([{transform:"translateX(-30%)",filter:"brightness(.85)"},{transform:"none",filter:"brightness(1)"}],o));
+  }
+  let ended=false;
+  const done=()=>{if(ended)return;ended=true;oldApp.remove();fly&&fly.remove();if(dst)dst.style.visibility="";app.removeAttribute("style");scrollTo(0,ty);anims.forEach(a=>{try{a.cancel()}catch{}})};
+  const fin=()=>{anims.forEach(a=>{try{a.finish()}catch{}});done()};
+  running.push(fin);
+  Promise.all(anims.map(a=>a.finished)).then(()=>{running=running.filter(f=>f!==fin);done()}).catch(()=>{});
+  setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},700);
 }
 function route(){
   const now=where(),prev=last;last=now;
