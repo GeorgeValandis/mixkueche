@@ -305,7 +305,13 @@ function transition(dir,fn){
   Promise.all(anims.map(a=>a.finished)).then(()=>{running=running.filter(f=>f!==fin);done()}).catch(()=>{});
   setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},900);
 }
+// Kam der Kochmodus direkt von der Rezeptseite, führt Schließen per history.back() zurück,
+// sonst bliebe der Kochmodus im Verlauf und „Zurück“ landete wieder darin.
+let fromHash=location.hash,cookFrom=null;
+const leaveCook=id=>{if(cookFrom===id)history.back();else location.replace("#"+id)};
 function route(){
+  if(location.hash.endsWith(".kochen"))cookFrom=fromHash===location.hash.replace(".kochen","")?location.hash.slice(1).split(".")[0]:cookFrom;else cookFrom=null;
+  fromHash=location.hash;
   const now=where(),prev=last;last=now;
   if(!prev)return render();
   const dir=now.depth>prev.depth?"forward":now.depth<prev.depth?"back":"fade";
@@ -422,7 +428,7 @@ function ovenPanel(o){return o?`<div class="tm oven"><div><b>${o.temp}°</b><spa
 function cook(r){
   let i=Math.min(store.get("step:"+r.id,0),r.steps.length-1);const s=r.steps[i],last=i===r.steps.length-1;
   $("#app").innerHTML=`<div class="cook view" id="cook">
-    <div class="cook-head"><button class="x" aria-label="Schließen" onclick="location.hash='${r.id}'">${ICON.x}</button>
+    <div class="cook-head"><button class="x" aria-label="Schließen" onclick="leaveCook('${r.id}')">${ICON.x}</button>
       <div class="progress">${r.steps.map((_,k)=>`<i class="${k<=i?"on":""}"></i>`).join("")}</div><span class="count">${i+1}/${r.steps.length}</span></div>
     <div class="cook-body">
       ${s.group?`<div class="grp">${esc(s.group)}</div>`:""}
@@ -440,7 +446,7 @@ function cook(r){
   wakeLock();
 }
 window.go=(id,d)=>{const r=S.recipes.find(x=>x.id===id);store.set("step:"+id,Math.max(0,Math.min(r.steps.length-1,store.get("step:"+id,0)+d)));unlockAudio();transition(d>0?"next":"prev",()=>cook(r))};
-window.finish=id=>{store.set("step:"+id,0);location.hash=id};
+window.finish=id=>{store.set("step:"+id,0);leaveCook(id)};
 
 /* ---------- Timer ---------- */
 function unlockAudio(){try{S.audio=S.audio||new (window.AudioContext||window.webkitAudioContext)();if(S.audio.state==="suspended")S.audio.resume()}catch{}}
