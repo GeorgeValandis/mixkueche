@@ -156,6 +156,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 @keyframes in{from{opacity:.4;transform:translateY(8px)}}
 .view{animation:none}
 .leaving *{transition:none!important}
+#app{min-height:100%}
 /* Antippen */
 .hero,.tile,.item,.chip,.cta,.cook-foot button,.timer-btn,.nav a,.back,.x,.stepper button{transition:transform .18s cubic-bezier(.3,.7,.4,1.4),background .2s,color .2s,opacity .2s}
 .hero:active,.tile:active,.item:active{transform:scale(.97)}
@@ -276,29 +277,29 @@ function transition(dir,fn){
     setTimeout(()=>{running=running.filter(f=>f!==fin);fin()},800);
     return;
   }
-  // Alte Ansicht einfrieren, neue darunter/darüber aufbauen
+  // Alte und neue Ansicht in eigene Bühnen legen; #app selbst wird nie animiert
+  // (Safari behält sonst nach der Animation einen Bezugsrahmen für position:fixed)
   const y=scrollY;SCROLL[lastHash]=y;
+  const stage=(z,inert)=>{const d=document.createElement("div");Object.assign(d.style,{position:"fixed",top:"0",left:"0",right:"0",bottom:"0",overflow:"hidden",zIndex:z,background:"var(--bg)",pointerEvents:inert?"none":""});return d};
   oldApp.id="";oldApp.classList.add("leaving");
-  Object.assign(oldApp.style,{position:"fixed",inset:"0",overflow:"hidden",zIndex:dir==="back"?"30":"10",background:"var(--bg)",pointerEvents:"none"});
-  oldApp.scrollTop=y;
+  const oldStage=stage(dir==="back"?"30":"10",true);oldApp.before(oldStage);oldStage.appendChild(oldApp);oldApp.style.marginTop=-y+"px";
   const app=document.createElement("div");app.id="app";
-  Object.assign(app.style,{position:"fixed",inset:"0",overflow:"hidden",zIndex:dir==="back"?"10":"30",background:"var(--bg)"});
-  oldApp.after(app);
+  const newStage=stage(dir==="back"?"10":"30");oldStage.after(newStage);newStage.appendChild(app);
   fn();lastHash=location.hash;
-  const ty=dir==="back"?(SCROLL[lastHash]||0):0;app.scrollTop=ty;
+  const ty=dir==="back"?(SCROLL[lastHash]||0):0;app.style.marginTop=-ty+"px";
   const anims=[];const o={duration:REDUCED?220:DUR,easing:EASE,fill:"both"};
   if(REDUCED||dir==="fade"){
-    anims.push(oldApp.animate([{opacity:1},{opacity:0}],{...o,duration:REDUCED?240:320}));
-    anims.push(app.animate([{opacity:0,transform:REDUCED?"none":"translateY(10px)"},{opacity:1,transform:"none"}],o));
+    anims.push(oldStage.animate([{opacity:1},{opacity:0}],{...o,duration:REDUCED?240:320}));
+    anims.push(newStage.animate([{opacity:0,transform:REDUCED?"none":"translateY(10px)"},{opacity:1,transform:"none"}],o));
   } else if(dir==="forward"){
-    anims.push(oldApp.animate([{transform:"none",filter:"brightness(1)"},{transform:"translateX(-22%)",filter:"brightness(.94)"}],o));
-    anims.push(app.animate([{transform:"translateX(100%)",boxShadow:"-8px 0 28px rgba(0,0,0,.08)"},{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
+    anims.push(oldStage.animate([{transform:"none",filter:"brightness(1)"},{transform:"translateX(-22%)",filter:"brightness(.94)"}],o));
+    anims.push(newStage.animate([{transform:"translateX(100%)",boxShadow:"-8px 0 28px rgba(0,0,0,.08)"},{transform:"none",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
   } else {
-    anims.push(oldApp.animate([{transform:"none",boxShadow:"-8px 0 28px rgba(0,0,0,.08)"},{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
-    anims.push(app.animate([{transform:"translateX(-22%)",filter:"brightness(.94)"},{transform:"none",filter:"brightness(1)"}],o));
+    anims.push(oldStage.animate([{transform:"none",boxShadow:"-8px 0 28px rgba(0,0,0,.08)"},{transform:"translateX(100%)",boxShadow:"-12px 0 32px rgba(0,0,0,0)"}],o));
+    anims.push(newStage.animate([{transform:"translateX(-22%)",filter:"brightness(.94)"},{transform:"none",filter:"brightness(1)"}],o));
   }
   let ended=false;
-  const done=()=>{if(ended)return;ended=true;oldApp.remove();app.removeAttribute("style");scrollTo(0,ty);anims.forEach(a=>{try{a.cancel()}catch{}})};
+  const done=()=>{if(ended)return;ended=true;anims.forEach(a=>{try{a.cancel()}catch{}});oldStage.remove();app.style.marginTop="";newStage.replaceWith(app);scrollTo(0,ty)};
   const fin=()=>{anims.forEach(a=>{try{a.finish()}catch{}});done()};
   running.push(fin);
   Promise.all(anims.map(a=>a.finished)).then(()=>{running=running.filter(f=>f!==fin);done()}).catch(()=>{});
