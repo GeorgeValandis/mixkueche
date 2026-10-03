@@ -154,7 +154,39 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
 @keyframes pulse{50%{transform:scale(1.06)}}
 .view{animation:in .28s ease-out}
 @keyframes in{from{opacity:.4;transform:translateY(8px)}}
-@media (prefers-reduced-motion:reduce){.view,.pill.done{animation:none}}
+/* Übergänge: View Transitions (iOS 18+), sonst einfaches Einblenden */
+.vt .view,.quiet .view{animation:none}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.34s;animation-timing-function:cubic-bezier(.22,.8,.24,1);animation-fill-mode:both}
+html[data-dir="forward"]::view-transition-old(root),html[data-dir="next"]::view-transition-old(root){animation-name:vt-out-left}
+html[data-dir="forward"]::view-transition-new(root),html[data-dir="next"]::view-transition-new(root){animation-name:vt-in-right}
+html[data-dir="back"]::view-transition-old(root),html[data-dir="prev"]::view-transition-old(root){animation-name:vt-out-right}
+html[data-dir="back"]::view-transition-new(root),html[data-dir="prev"]::view-transition-new(root){animation-name:vt-in-left}
+html[data-dir="fade"]::view-transition-old(root){animation:vt-fade-out .18s ease both}
+html[data-dir="fade"]::view-transition-new(root){animation:vt-fade-in .24s ease both}
+::view-transition-group(photo){animation-duration:.42s;animation-timing-function:cubic-bezier(.22,.8,.24,1)}
+::view-transition-old(photo),::view-transition-new(photo){height:100%;object-fit:cover}
+::view-transition-group(nav),::view-transition-group(cook-head),::view-transition-group(cook-foot){animation-duration:.34s}
+.nav{view-transition-name:nav}
+.cook-head{view-transition-name:cook-head}
+.cook-foot{view-transition-name:cook-foot}
+@keyframes vt-in-right{from{transform:translateX(32%);opacity:0}}
+@keyframes vt-out-left{to{transform:translateX(-14%);opacity:0}}
+@keyframes vt-in-left{from{transform:translateX(-14%);opacity:0}}
+@keyframes vt-out-right{to{transform:translateX(32%);opacity:0}}
+@keyframes vt-fade-in{from{opacity:0;transform:translateY(6px)}}
+@keyframes vt-fade-out{to{opacity:0}}
+/* Antippen */
+.hero,.tile,.item,.chip,.cta,.cook-foot button,.timer-btn,.nav a,.back,.x,.stepper button{transition:transform .18s cubic-bezier(.3,.7,.4,1.4),background .2s,color .2s,opacity .2s}
+.hero:active,.tile:active,.item:active{transform:scale(.97)}
+.chip:active,.cta:active,.cook-foot button:active,.timer-btn:active,.back:active,.x:active,.stepper button:active{transform:scale(.93)}
+.nav a:active{transform:scale(.95)}
+/* Liste nach Filterwechsel gestaffelt einblenden */
+.stagger .item{animation:item-in .36s cubic-bezier(.22,.8,.24,1) both;animation-delay:calc(var(--i) * 35ms)}
+@keyframes item-in{from{opacity:0;transform:translateY(10px)}}
+.pill{animation:pill-in .38s cubic-bezier(.3,.7,.4,1.4) both}
+@keyframes pill-in{from{opacity:0;transform:scale(.6)}}
+.progress i{transition:background .3s}
+@media (prefers-reduced-motion:reduce){.view,.pill,.pill.done,.stagger .item{animation:none}*{transition:none!important}}
 </style>
 
 </head>
@@ -229,11 +261,30 @@ function paint(cv,r){
   // Zitrone
   const lx=cx+rad*.62,ly=cy+rad*.55;c.fillStyle="#f3d34a";c.beginPath();c.arc(lx,ly,rad*.17,Math.PI*.15,Math.PI*1.15);c.fill();c.fillStyle="#fbeaa0";c.beginPath();c.arc(lx,ly,rad*.13,Math.PI*.15,Math.PI*1.15);c.fill();
 }
-function media(r,style){return r.image?`<img class="photo" src="${esc(r.image)}" alt="${esc(r.title)}" style="${style||""}">`:`<canvas data-r="${r.id}" style="${style||""}"></canvas>`}
+function media(r,style){return r.image?`<img class="photo" data-id="${r.id}" src="${esc(r.image)}" alt="${esc(r.title)}" style="${style||""}">`:`<canvas data-r="${r.id}" data-id="${r.id}" style="${style||""}"></canvas>`}
 function canvases(){document.querySelectorAll("canvas[data-r]").forEach(cv=>{const r=S.recipes.find(x=>x.id===cv.dataset.r);if(r)paint(cv,r)})}
 
 /* ---------- Ansichten ---------- */
+const VT=!!document.startViewTransition&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(VT)document.documentElement.classList.add("vt");
+function where(){const [id,mode]=decodeURIComponent(location.hash.slice(1)).split(".");const r=S.recipes.find(x=>x.id===id);return {id,r,depth:r?(mode==="kochen"?2:1):0}}
+let last=null;
+function transition(dir,fn,photoId){
+  if(!VT||!S.loaded){fn();return}
+  const h=document.documentElement;h.dataset.dir=dir;
+  const tag=()=>{if(!photoId)return;const el=[...document.querySelectorAll(`[data-id="${photoId}"]`)].find(e=>{const b=e.getBoundingClientRect();return b.bottom>0&&b.top<innerHeight&&b.right>0&&b.left<innerWidth});if(el)el.style.viewTransitionName="photo"};
+  tag();
+  const t=document.startViewTransition(()=>{fn();tag()});
+  t.finished.finally(()=>{delete h.dataset.dir;document.querySelectorAll("[data-id]").forEach(e=>e.style.viewTransitionName="")});
+}
 function route(){
+  const now=where(),prev=last;last=now;
+  if(!prev)return render();
+  const dir=now.depth>prev.depth?"forward":now.depth<prev.depth?"back":"fade";
+  const pid=(now.depth===1&&prev.depth===0)?now.r.id:(now.depth===0&&prev.depth===1)?prev.r.id:null;
+  transition(dir,render,pid);
+}
+function render(){
   const h=decodeURIComponent(location.hash.slice(1));const [id,mode]=h.split(".");
   const r=S.recipes.find(x=>x.id===id);
   releaseWake();
@@ -298,15 +349,15 @@ function list(){
 function chips(){
   const ts=allTags();
   $("#chips").innerHTML=ts.length?[`<button class="chip ${!S.tag?"on":""}" data-t="">Alle</button>`,...ts.map(t=>`<button class="chip ${S.tag===t?"on":""}" data-t="${esc(t)}">${esc(t)}</button>`)].join(""):"";
-  $("#chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;S.tag=b.dataset.t||null;$("#chips").querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c===b));results()};
+  $("#chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;S.tag=b.dataset.t||null;$("#chips").querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c===b));results(true)};
 }
-function results(){
+function results(anim){
   const rs=filtered(),el=$("#res");if(!el)return;
   if(!S.loaded){el.innerHTML=`<div class="empty">Lädt …</div>`;return}
   if(!S.recipes.length){el.innerHTML=`<div class="empty"><b>Noch keine Rezepte</b>Sag Claude, was du kochen willst.</div>`;return}
   if(!rs.length){el.innerHTML=`<div class="empty"><b>Nichts gefunden</b>${S.q?`Kein Rezept passt zu „${esc(S.q)}“.`:"In dieser Kategorie gibt es noch nichts."}<br>Sag Claude Bescheid, dann kommt es rein.</div>`;return}
-  el.innerHTML=`<div class="count-line">${rs.length} ${rs.length===1?"Rezept":"Rezepte"}</div><div class="list">${rs.map(r=>`
-    <button class="item" onclick="location.hash='${r.id}'">${media(r)}
+  el.innerHTML=`<div class="count-line">${rs.length} ${rs.length===1?"Rezept":"Rezepte"}</div><div class="list ${anim?"stagger":""}">${rs.map((r,k)=>`
+    <button class="item" style="--i:${Math.min(k,10)}" onclick="location.hash='${r.id}'">${media(r)}
       <span class="t">${esc(r.title)}<span class="meta"><span>${minLabel(r.times.total)}</span><span class="dot"></span><span>${esc(r.difficulty||"")}</span></span>${(r.tags||[]).length?`<span class="tags">${esc(r.tags.join(" · "))}</span>`:""}</span>
       <span class="chev">${ICON.chev}</span></button>`).join("")}</div>`;
   canvases();
@@ -327,7 +378,7 @@ function detail(r){
   <div class="cta-bar"><button class="cta" onclick="location.hash='${r.id}.kochen'">${store.get("step:"+r.id,0)>0?"Weiterkochen":"Jetzt kochen"}</button></div>`;
   canvases();scrollTo(0,0);
 }
-window.por=(id,d)=>{const r=S.recipes.find(x=>x.id===id);const v=Math.min(r.maxServings||24,Math.max(1,store.get("por:"+id,r.servings)+d));store.set("por:"+id,v);const y=scrollY;detail(r);scrollTo(0,y)};
+window.por=(id,d)=>{const r=S.recipes.find(x=>x.id===id);const v=Math.min(r.maxServings||24,Math.max(1,store.get("por:"+id,r.servings)+d));store.set("por:"+id,v);const y=scrollY;const h=document.documentElement;h.classList.add("quiet");detail(r);scrollTo(0,y);requestAnimationFrame(()=>h.classList.remove("quiet"))};
 
 function tmPanel(t){
   if(!t) return "";
@@ -360,7 +411,7 @@ function cook(r){
   el.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>70){if(dx<0&&!last)go(r.id,1);if(dx>0&&i>0)go(r.id,-1)}},{passive:true});
   wakeLock();
 }
-window.go=(id,d)=>{const r=S.recipes.find(x=>x.id===id);store.set("step:"+id,Math.max(0,Math.min(r.steps.length-1,store.get("step:"+id,0)+d)));unlockAudio();cook(r)};
+window.go=(id,d)=>{const r=S.recipes.find(x=>x.id===id);store.set("step:"+id,Math.max(0,Math.min(r.steps.length-1,store.get("step:"+id,0)+d)));unlockAudio();transition(d>0?"next":"prev",()=>cook(r))};
 window.finish=id=>{store.set("step:"+id,0);location.hash=id};
 
 /* ---------- Timer ---------- */
@@ -392,7 +443,7 @@ route();
     const res=await fetch("recipes.json",{cache:"no-cache"});
     S.recipes=(await res.json()).sort((a,b)=>(a.order||0)-(b.order||0));
   }catch{}
-  S.loaded=true;route();
+  S.loaded=true;last=null;route();
 })();
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
